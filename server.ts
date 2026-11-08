@@ -75,23 +75,31 @@ app.get('/robots.txt', (_req: Request, res: Response) => {
     }
   }
   res.setHeader('Content-Type', 'text/plain; charset=utf-8');
-  return res.status(200).send("User-agent: *\nAllow: /\n\nSitemap: https://tentotenphotobox.biz.id/sitemap.xml\n");
+  return res.status(200).send("User-agent: *\nAllow: /\n\nSitemap: https://tentotenphotobox.biz.id/sitemap_index.xml\n");
 });
 
-// Dedicated sitemap.xml route (HTTP 200, application/xml; charset=utf-8, without noindex)
+// Legacy sitemap.xml redirect: HTTP 301 Moved Permanently to /sitemap_index.xml
 app.get('/sitemap.xml', (_req: Request, res: Response) => {
+  res.setHeader('Cache-Control', 'public, max-age=86400');
+  return res.redirect(301, '/sitemap_index.xml');
+});
+
+// Dedicated XML Sitemap routes (HTTP 200, application/xml; charset=utf-8, without noindex)
+const SITEMAP_FILES = ['sitemap_index.xml', 'page-sitemap.xml', 'location-sitemap.xml', 'post-sitemap.xml'];
+app.get(SITEMAP_FILES.map((file) => `/${file}`), (req: Request, res: Response, next: NextFunction) => {
+  const fileName = req.path.replace(/^\/+/, '');
   const candidates = [
-    path.resolve(distDir, 'sitemap.xml'),
-    path.resolve(publicDir, 'sitemap.xml'),
+    path.resolve(distDir, fileName),
+    path.resolve(publicDir, fileName),
   ];
   for (const p of candidates) {
-    if (fs.existsSync(p)) {
+    if (fs.existsSync(p) && fs.statSync(p).isFile()) {
       res.setHeader('Content-Type', 'application/xml; charset=utf-8');
       res.setHeader('Cache-Control', 'public, max-age=86400');
       return res.status(200).sendFile(p);
     }
   }
-  return res.status(404).send('Sitemap not found');
+  next();
 });
 
 async function startServer() {

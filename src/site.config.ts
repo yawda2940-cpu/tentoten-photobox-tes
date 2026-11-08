@@ -3,7 +3,7 @@
  * TentoTen Photobox
  */
 
-export { SITE_URL, ROUTES, INDEXED_ROUTES, ALL_ROUTES, type RouteItem } from './routes';
+export { SITE_URL, ROUTES, INDEXED_ROUTES, ALL_ROUTES, SITEMAP_TYPE_MAP, type RouteItem, type RouteType } from './routes';
 import { SITE_URL, INDEXED_ROUTES, ALL_ROUTES } from './routes';
 
 export const GA_ID = (typeof process !== 'undefined' && (process.env.GA_ID || process.env.VITE_GA_ID)) || '';

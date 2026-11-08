@@ -13,6 +13,9 @@ import {
   PAGES_META,
   INDEXED_PATHS,
   ALL_PATHS,
+  ROUTES,
+  SITEMAP_TYPE_MAP,
+  type RouteType,
   GA_ID,
   GOOGLE_SITE_VERIFICATION,
   BING_SITE_VERIFICATION
@@ -157,16 +160,16 @@ async function runPrerender() {
   const robotsTxt = `User-agent: *
 Allow: /
 
-Sitemap: ${SITE_URL}/sitemap.xml
+Sitemap: ${SITE_URL}/sitemap_index.xml
 `;
   fs.writeFileSync(path.resolve(distDir, 'robots.txt'), robotsTxt, 'utf-8');
   const publicRobots = path.resolve(rootDir, 'public', 'robots.txt');
   if (fs.existsSync(path.dirname(publicRobots))) {
     fs.writeFileSync(publicRobots, robotsTxt, 'utf-8');
   }
-  console.log('[SSG] Generated: robots.txt');
+  console.log('[SSG] Generated: robots.txt (pointing to sitemap_index.xml)');
 
-  // 7. Generate sitemap.xml (exactly 11 indexed URLs from shared routes)
+  // 7. Generate Yoast-style Sitemap Index and Child Sitemaps
   const today = new Date().toISOString().split('T')[0];
   const escapeXml = (unsafe: string) =>
     unsafe.replace(/[<>&'"]/g, (c) => {
@@ -180,26 +183,82 @@ Sitemap: ${SITE_URL}/sitemap.xml
       }
     });
 
-  let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-`;
-  for (const p of INDEXED_PATHS) {
-    const rawLoc = `${SITE_URL}${p === '/' ? '' : p}`;
-    const loc = escapeXml(rawLoc);
-    sitemapXml += `  <url>
-    <loc>${loc}</loc>
-    <lastmod>${today}</lastmod>
-  </url>
-`;
-  }
-  sitemapXml += `</urlset>\n`;
+  // Group indexable routes by type (excluding /404)
+  const routesByType: Record<RouteType, typeof ROUTES> = {
+    page: [],
+    location: [],
+    post: [],
+  };
 
-  fs.writeFileSync(path.resolve(distDir, 'sitemap.xml'), sitemapXml, 'utf-8');
-  const publicSitemap = path.resolve(rootDir, 'public', 'sitemap.xml');
-  if (fs.existsSync(path.dirname(publicSitemap))) {
-    fs.writeFileSync(publicSitemap, sitemapXml, 'utf-8');
+  for (const route of ROUTES) {
+    if (route.indexable && route.path !== '/404') {
+      routesByType[route.type].push(route);
+    }
   }
-  console.log(`[SSG] Generated: sitemap.xml with ${INDEXED_PATHS.length} URLs`);
+
+  // Ensure legacy sitemap.xml files are unlinked
+  const legacyDistSitemap = path.resolve(distDir, 'sitemap.xml');
+  if (fs.existsSync(legacyDistSitemap)) {
+    fs.unlinkSync(legacyDistSitemap);
+  }
+  const legacyPublicSitemap = path.resolve(rootDir, 'public', 'sitemap.xml');
+  if (fs.existsSync(legacyPublicSitemap)) {
+    fs.unlinkSync(legacyPublicSitemap);
+  }
+
+  // Generate child sitemaps (page-sitemap.xml, location-sitemap.xml, post-sitemap.xml only if routes exist)
+  const activeSitemaps: { fileName: string; loc: string; count: number }[] = [];
+  const typeOrder: RouteType[] = ['page', 'location', 'post'];
+
+  for (const type of typeOrder) {
+    const items = routesByType[type];
+    const fileName = SITEMAP_TYPE_MAP[type];
+    const targetDistPath = path.resolve(distDir, fileName);
+    const targetPublicPath = path.resolve(rootDir, 'public', fileName);
+
+    if (items.length > 0) {
+      let childXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
+      for (const item of items) {
+        const rawLoc = `${SITE_URL}${item.path === '/' ? '' : item.path}`;
+        const loc = escapeXml(rawLoc);
+        childXml += `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n  </url>\n`;
+      }
+      childXml += `</urlset>\n`;
+
+      fs.writeFileSync(targetDistPath, childXml, 'utf-8');
+      if (fs.existsSync(path.dirname(targetPublicPath))) {
+        fs.writeFileSync(targetPublicPath, childXml, 'utf-8');
+      }
+
+      activeSitemaps.push({
+        fileName,
+        loc: `${SITE_URL}/${fileName}`,
+        count: items.length,
+      });
+
+      console.log(`[SSG] Generated: ${fileName} with ${items.length} URLs`);
+    } else {
+      // Clean up stale file if 0 routes
+      if (fs.existsSync(targetDistPath)) fs.unlinkSync(targetDistPath);
+      if (fs.existsSync(targetPublicPath)) fs.unlinkSync(targetPublicPath);
+    }
+  }
+
+  // Generate sitemap_index.xml
+  let indexXml = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
+  for (const sitemap of activeSitemaps) {
+    const loc = escapeXml(sitemap.loc);
+    indexXml += `  <sitemap>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n  </sitemap>\n`;
+  }
+  indexXml += `</sitemapindex>\n`;
+
+  const distIndexSitemap = path.resolve(distDir, 'sitemap_index.xml');
+  const publicIndexSitemap = path.resolve(rootDir, 'public', 'sitemap_index.xml');
+  fs.writeFileSync(distIndexSitemap, indexXml, 'utf-8');
+  if (fs.existsSync(path.dirname(publicIndexSitemap))) {
+    fs.writeFileSync(publicIndexSitemap, indexXml, 'utf-8');
+  }
+  console.log(`[SSG] Generated: sitemap_index.xml with ${activeSitemaps.length} child sitemaps`);
 
   console.log('--- SSG Prerendering Completed Successfully ---');
 }

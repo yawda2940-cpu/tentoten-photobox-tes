@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { SITE_URL, INDEXED_ROUTES, ALL_ROUTES } from '../src/routes.ts';
+import { SITE_URL, INDEXED_ROUTES, ALL_ROUTES, ROUTES } from '../src/routes.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -16,49 +16,158 @@ console.log(`Target Domain / SITE_URL: ${SITE_URL}`);
 console.log(`Total Indexed Routes expected: ${INDEXED_ROUTES.length}`);
 
 // -----------------------------------------------------------------------------
-// 1. Sitemap.xml Verification
+// 1. Sitemap Index & Child Sitemaps Verification (Yoast / WordPress Style)
 // -----------------------------------------------------------------------------
-const sitemapPath = path.resolve(distDir, 'sitemap.xml');
-let sitemapLocs = [];
+const sitemapIndexPath = path.resolve(distDir, 'sitemap_index.xml');
+let allChildLocs = [];
 
-if (!fs.existsSync(sitemapPath)) {
-  errors.push(`dist/sitemap.xml tidak ditemukan!`);
+// Stale single sitemap.xml check
+const legacySitemapPath = path.resolve(distDir, 'sitemap.xml');
+if (fs.existsSync(legacySitemapPath)) {
+  errors.push(`dist/sitemap.xml lama masih ditemukan di dist/! Harus dihapus karena sekarang menggunakan sitemap_index.xml dan redirect 301.`);
+}
+
+if (!fs.existsSync(sitemapIndexPath)) {
+  errors.push(`dist/sitemap_index.xml tidak ditemukan!`);
 } else {
-  const sitemapContent = fs.readFileSync(sitemapPath, 'utf-8');
+  const indexContent = fs.readFileSync(sitemapIndexPath, 'utf-8');
 
   // XML Header & Namespace
-  if (!sitemapContent.startsWith('<?xml version="1.0" encoding="UTF-8"?>')) {
-    errors.push('dist/sitemap.xml tidak memiliki deklarasi <?xml version="1.0" encoding="UTF-8"?> di awal file');
+  if (!indexContent.startsWith('<?xml version="1.0" encoding="UTF-8"?>')) {
+    errors.push('dist/sitemap_index.xml tidak memiliki deklarasi <?xml version="1.0" encoding="UTF-8"?> di awal file');
   }
-  if (!sitemapContent.includes('xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"')) {
-    errors.push('dist/sitemap.xml tidak memiliki namespace http://www.sitemaps.org/schemas/sitemap/0.9 yang valid');
+  if (!indexContent.includes('xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"')) {
+    errors.push('dist/sitemap_index.xml tidak memiliki namespace http://www.sitemaps.org/schemas/sitemap/0.9 yang valid');
+  }
+  if (!indexContent.includes('<sitemapindex') || !indexContent.includes('</sitemapindex>')) {
+    errors.push('dist/sitemap_index.xml tidak memiliki root element <sitemapindex> yang valid');
   }
 
-  // Extract <loc> entries
-  const locMatches = [...sitemapContent.matchAll(/<loc>(.*?)<\/loc>/g)];
-  sitemapLocs = locMatches.map((m) => m[1].trim());
+  // Extract <sitemap> entries
+  const sitemapEntryMatches = [...indexContent.matchAll(/<sitemap>([\s\S]*?)<\/sitemap>/g)];
+  if (sitemapEntryMatches.length === 0) {
+    errors.push('dist/sitemap_index.xml tidak memuat satu pun elemen <sitemap>!');
+  }
 
-  if (sitemapLocs.length !== INDEXED_ROUTES.length) {
+  const registeredSitemapFiles = new Set();
+
+  for (const entryMatch of sitemapEntryMatches) {
+    const entryBlock = entryMatch[1];
+    const locMatch = entryBlock.match(/<loc>(.*?)<\/loc>/);
+    const lastmodMatch = entryBlock.match(/<lastmod>(.*?)<\/lastmod>/);
+
+    if (!locMatch) {
+      errors.push('Terdapat elemen <sitemap> tanpa <loc> di dalam dist/sitemap_index.xml');
+      continue;
+    }
+
+    const loc = locMatch[1].trim();
+
+    if (!lastmodMatch || !/^\d{4}-\d{2}-\d{2}$/.test(lastmodMatch[1].trim())) {
+      errors.push(`Format <lastmod> pada sitemap index (${loc}) tidak valid: "${lastmodMatch ? lastmodMatch[1] : 'kosong'}" (harus YYYY-MM-DD)`);
+    }
+
+    if (!loc.startsWith('https://tentotenphotobox.biz.id/')) {
+      errors.push(`URL sitemap pada sitemap_index.xml tidak berawalan https://tentotenphotobox.biz.id/: "${loc}"`);
+    }
+
+    const sitemapUrlObj = new URL(loc);
+    const fileName = sitemapUrlObj.pathname.replace(/^\/+/, '');
+    registeredSitemapFiles.add(fileName);
+
+    const childSitemapDistPath = path.resolve(distDir, fileName);
+    if (!fs.existsSync(childSitemapDistPath)) {
+      errors.push(`Sitemap anak yang terdaftar di index tidak ditemukan di dist/: ${fileName} (target: ${childSitemapDistPath})`);
+    }
+  }
+
+  // Find all child sitemap files in dist/
+  const distFiles = fs.readdirSync(distDir);
+  const childSitemapFilesOnDisk = distFiles.filter(
+    (f) => f.endsWith('-sitemap.xml') || (f.endsWith('.xml') && f !== 'sitemap_index.xml')
+  );
+
+  // Check no unlisted child sitemap exists on disk
+  for (const diskFile of childSitemapFilesOnDisk) {
+    if (!registeredSitemapFiles.has(diskFile)) {
+      errors.push(`Ditemukan file sitemap anak di dist/ yang tidak terdaftar di sitemap_index.xml: ${diskFile}`);
+    }
+  }
+
+  // Verify post-sitemap.xml is NOT present when no post routes exist
+  const postRoutesCount = ROUTES.filter((r) => r.type === 'post' && r.indexable).length;
+  if (postRoutesCount === 0) {
+    if (fs.existsSync(path.resolve(distDir, 'post-sitemap.xml'))) {
+      errors.push(`dist/post-sitemap.xml tidak boleh dibuat karena tidak ada rute bertipe "post"!`);
+    }
+    if (registeredSitemapFiles.has('post-sitemap.xml')) {
+      errors.push(`dist/sitemap_index.xml tidak boleh memuat "post-sitemap.xml" karena tidak ada rute bertipe "post"!`);
+    }
+  }
+
+  // Inspect each child sitemap
+  for (const childFileName of registeredSitemapFiles) {
+    const childPath = path.resolve(distDir, childFileName);
+    if (!fs.existsSync(childPath)) continue;
+
+    const childContent = fs.readFileSync(childPath, 'utf-8');
+
+    if (!childContent.startsWith('<?xml version="1.0" encoding="UTF-8"?>')) {
+      errors.push(`dist/${childFileName} tidak memiliki deklarasi <?xml version="1.0" encoding="UTF-8"?> di awal file`);
+    }
+    if (!childContent.includes('xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"')) {
+      errors.push(`dist/${childFileName} tidak memiliki namespace http://www.sitemaps.org/schemas/sitemap/0.9`);
+    }
+    if (!childContent.includes('<urlset') || !childContent.includes('</urlset>')) {
+      errors.push(`dist/${childFileName} tidak memiliki root element <urlset> yang valid`);
+    }
+
+    const urlMatches = [...childContent.matchAll(/<url>([\s\S]*?)<\/url>/g)];
+    if (urlMatches.length === 0) {
+      errors.push(`Sitemap anak dist/${childFileName} kosong (tidak memiliki elemen <url>)!`);
+    }
+
+    for (const urlMatch of urlMatches) {
+      const block = urlMatch[1];
+      const locMatch = block.match(/<loc>(.*?)<\/loc>/);
+      const lastmodMatch = block.match(/<lastmod>(.*?)<\/lastmod>/);
+
+      if (!locMatch) {
+        errors.push(`Terdapat <url> tanpa <loc> di dalam dist/${childFileName}`);
+        continue;
+      }
+
+      const loc = locMatch[1].trim();
+      allChildLocs.push(loc);
+
+      if (!lastmodMatch || !/^\d{4}-\d{2}-\d{2}$/.test(lastmodMatch[1].trim())) {
+        errors.push(`Format <lastmod> pada ${childFileName} (${loc}) tidak valid: "${lastmodMatch ? lastmodMatch[1] : 'kosong'}"`);
+      }
+    }
+  }
+
+  // Check combined <loc> count across child sitemaps
+  if (allChildLocs.length !== INDEXED_ROUTES.length) {
     errors.push(
-      `dist/sitemap.xml harus berisi tepat ${INDEXED_ROUTES.length} URL, ditemukan: ${sitemapLocs.length}`
+      `Gabungan URL di seluruh sitemap anak harus tepat ${INDEXED_ROUTES.length} URL, ditemukan: ${allChildLocs.length}`
     );
   }
 
-  // Check duplicates
-  const uniqueLocs = new Set(sitemapLocs);
-  if (uniqueLocs.size !== sitemapLocs.length) {
-    errors.push(`dist/sitemap.xml memiliki URL duplikat!`);
+  // Check duplicates across child sitemaps
+  const uniqueChildLocs = new Set(allChildLocs);
+  if (uniqueChildLocs.size !== allChildLocs.length) {
+    errors.push(`Terdapat URL duplikat di antara sitemap anak!`);
   }
 
-  // Check /404 in sitemap
-  if (sitemapLocs.some((loc) => loc.includes('/404'))) {
-    errors.push(`dist/sitemap.xml TIDAK BOLEH memuat rute /404!`);
+  // Check /404 in sitemaps
+  if (allChildLocs.some((loc) => loc.includes('/404'))) {
+    errors.push(`Sitemap anak TIDAK BOLEH memuat rute /404!`);
   }
 
-  // Check domain prefix & canonical mapping
-  for (const loc of sitemapLocs) {
+  // Check domain prefix, HTML existence, canonical parity, and noindex
+  for (const loc of allChildLocs) {
     if (!loc.startsWith('https://tentotenphotobox.biz.id')) {
-      errors.push(`URL di sitemap.xml tidak berawalan https://tentotenphotobox.biz.id: "${loc}"`);
+      errors.push(`URL di sitemap anak tidak berawalan https://tentotenphotobox.biz.id: "${loc}"`);
     }
 
     // Determine expected relative path
@@ -99,8 +208,8 @@ if (!fs.existsSync(robotsPath)) {
   errors.push(`dist/robots.txt tidak ditemukan!`);
 } else {
   const robotsContent = fs.readFileSync(robotsPath, 'utf-8');
-  if (!robotsContent.includes('Sitemap: https://tentotenphotobox.biz.id/sitemap.xml')) {
-    errors.push('dist/robots.txt tidak memuat arahan "Sitemap: https://tentotenphotobox.biz.id/sitemap.xml"');
+  if (!robotsContent.includes('Sitemap: https://tentotenphotobox.biz.id/sitemap_index.xml')) {
+    errors.push('dist/robots.txt tidak memuat arahan "Sitemap: https://tentotenphotobox.biz.id/sitemap_index.xml"');
   }
   if (/Disallow:\s*\/\s*$/m.test(robotsContent)) {
     errors.push('dist/robots.txt memblokir seluruh situs dengan "Disallow: /"');
