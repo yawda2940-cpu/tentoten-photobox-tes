@@ -1,0 +1,17 @@
+{
+  "name": "TentoTen Photobox",
+  "short_name": "TentoTen",
+  "description": "Photobox analog di kafe Jawa Timur tanpa reservasi, cetak fisik instan Rp35.000 per sesi.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff8f0",
+  "theme_color": "#960011",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

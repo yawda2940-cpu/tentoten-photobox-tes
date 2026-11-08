@@ -1,0 +1,8 @@
+{
+  "name": "Remix TentoTen Photobox",
+  "description": "Website resmi TentoTen Photobox: Photobox analog 35mm di kafe Jawa Timur (Madiun, Jombang, Ponorogo, Kertosono) tanpa reservasi, cetak fisik instan, dan custom frame.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
