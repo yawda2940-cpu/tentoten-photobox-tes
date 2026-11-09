@@ -46,7 +46,7 @@ async function runPrerender() {
     }
 
     const canonicalUrl = `${SITE_URL}${pagePath === '/' ? '' : pagePath}`;
-    const ogImageUrl = `${SITE_URL}/og-image.jpg`;
+    const ogImageUrl = `${SITE_URL}/og-image.svg`;
 
     // 1. Render App component to string
     const appHtml = renderToString(<App initialPath={pagePath} />);

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tentotenphotobox.biz.id/sitemap.xml
+Sitemap: https://tentotenphotobox.biz.id/sitemap_index.xml

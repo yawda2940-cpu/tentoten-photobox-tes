@@ -254,18 +254,18 @@ if (foundLocationPages < 4) {
 // -----------------------------------------------------------------------------
 // 5. Assets Check (og-image.jpg) - Header SOF & Dimension Validation (Zero-Dependency)
 // -----------------------------------------------------------------------------
-const ogImagePath = path.resolve(distDir, 'og-image.jpg');
+const ogImagePath = path.resolve(distDir, 'og-image.svg');
 if (!fs.existsSync(ogImagePath)) {
   errors.push(`dist/og-image.jpg tidak ditemukan!`);
 } else {
   const stat = fs.statSync(ogImagePath);
   if (stat.size < 10 * 1024 || stat.size > 300 * 1024) {
-    errors.push(`Ukuran dist/og-image.jpg tidak valid: ${(stat.size / 1024).toFixed(1)} KB (harus antara 10 KB dan 300 KB)`);
+    errors.push(`Ukuran dist/og-image.svg tidak valid: ${(stat.size / 1024).toFixed(1)} KB (harus antara 10 KB dan 300 KB)`);
   }
 
   const buffer = fs.readFileSync(ogImagePath);
   if (buffer.length < 2 || buffer[0] !== 0xff || buffer[1] !== 0xd8) {
-    errors.push(`Header dist/og-image.jpg tidak valid: byte awal bukan JPEG SOI FF D8`);
+    errors.push(`Header dist/og-image.svg tidak valid: byte awal bukan JPEG SOI FF D8`);
   } else {
     let offset = 2;
     let dimensions = null;
@@ -295,9 +295,9 @@ if (!fs.existsSync(ogImagePath)) {
     }
 
     if (!dimensions) {
-      errors.push(`Gagal membaca dimensi SOF dari header dist/og-image.jpg`);
+      errors.push(`Gagal membaca dimensi SOF dari header dist/og-image.svg`);
     } else if (dimensions.width !== 1200 || dimensions.height !== 630) {
-      errors.push(`Dimensi dist/og-image.jpg bukan 1200x630, melainkan ${dimensions.width}x${dimensions.height}`);
+      errors.push(`Dimensi dist/og-image.svg bukan 1200x630, melainkan ${dimensions.width}x${dimensions.height}`);
     }
   }
 }
@@ -433,14 +433,14 @@ for (const route of ALL_ROUTES) {
   // OpenGraph Image & Twitter Image checks (must be absolute https://tentotenphotobox.biz.id/og-image.jpg)
   const ogImgMatch = html.match(/<meta\s+property=["']og:image["']\s+content=["']([\s\S]*?)["']/i);
   const ogImage = ogImgMatch ? ogImgMatch[1].trim() : '';
-  if (ogImage !== 'https://tentotenphotobox.biz.id/og-image.jpg') {
-    errors.push(`[${route}] og:image bukan "https://tentotenphotobox.biz.id/og-image.jpg", melainkan: "${ogImage}"`);
+  if (ogImage !== 'https://tentotenphotobox.biz.id/og-image.svg') {
+    errors.push(`[${route}] og:image bukan "https://tentotenphotobox.biz.id/og-image.svg", melainkan: "${ogImage}"`);
   }
 
   const twitterImgMatch = html.match(/<meta\s+name=["']twitter:image["']\s+content=["']([\s\S]*?)["']/i);
   const twitterImage = twitterImgMatch ? twitterImgMatch[1].trim() : '';
-  if (twitterImage !== 'https://tentotenphotobox.biz.id/og-image.jpg') {
-    errors.push(`[${route}] twitter:image bukan "https://tentotenphotobox.biz.id/og-image.jpg", melainkan: "${twitterImage}"`);
+  if (twitterImage !== 'https://tentotenphotobox.biz.id/og-image.svg') {
+    errors.push(`[${route}] twitter:image bukan "https://tentotenphotobox.biz.id/og-image.svg", melainkan: "${twitterImage}"`);
   }
 
   const ogImgWidth = html.match(/<meta\s+property=["']og:image:width["']\s+content=["']([\s\S]*?)["']/i);
