@@ -265,7 +265,7 @@ if (!fs.existsSync(ogImagePath)) {
 
   const buffer = fs.readFileSync(ogImagePath);
   if (buffer.length < 2 || buffer[0] !== 0xff || buffer[1] !== 0xd8) {
-    errors.push(`Header dist/og-image.jpg tidak valid JPEG (harus dimulai dengan FF D8)`);
+    errors.push(`Header dist/og-image.jpg tidak valid: byte awal bukan JPEG SOI FF D8`);
   } else {
     let offset = 2;
     let dimensions = null;
