@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { spawn } from 'node:child_process';
 import net from 'node:net';
 import { INDEXED_ROUTES } from '../src/routes.ts';
@@ -153,6 +155,79 @@ async function runHeaderChecks() {
 
   try {
     // -------------------------------------------------------------------------
+    // Phase 0: Validate vercel.json Static Security & Cache Headers
+    // -------------------------------------------------------------------------
+    console.log('[0/3] Validating vercel.json structure and security headers...');
+    const vercelConfigPath = path.resolve(process.cwd(), 'vercel.json');
+    if (!fs.existsSync(vercelConfigPath)) {
+      errors.push('vercel.json tidak ditemukan di root directory!');
+    } else {
+      let vConfig;
+      try {
+        vConfig = JSON.parse(fs.readFileSync(vercelConfigPath, 'utf-8'));
+      } catch (e) {
+        errors.push(`vercel.json bukan JSON valid: ${e.message}`);
+      }
+
+      if (vConfig) {
+        // Check redirects
+        if (!vConfig.redirects || !vConfig.redirects.some((r) => r.source === '/sitemap.xml' && r.destination === '/sitemap_index.xml')) {
+          errors.push('vercel.json tidak memuat redirect permanent /sitemap.xml -> /sitemap_index.xml');
+        }
+
+        // Check headers
+        if (!Array.isArray(vConfig.headers) || vConfig.headers.length === 0) {
+          errors.push('vercel.json tidak memuat array "headers"');
+        } else {
+          // Check /(.*) security headers
+          const rootHeaderRule = vConfig.headers.find((h) => h.source === '/(.*)');
+          if (!rootHeaderRule) {
+            errors.push('vercel.json tidak memuat header rule untuk source "/(.*)"');
+          } else {
+            const headerMap = new Map(rootHeaderRule.headers.map((h) => [h.key.toLowerCase(), h.value]));
+            const requiredHeaders = [
+              'x-content-type-options',
+              'x-frame-options',
+              'referrer-policy',
+              'permissions-policy',
+              'cross-origin-opener-policy',
+              'cross-origin-resource-policy',
+              'strict-transport-security',
+            ];
+            for (const reqH of requiredHeaders) {
+              if (!headerMap.has(reqH)) {
+                errors.push(`vercel.json [/(.*)] kehilangan header: ${reqH}`);
+              }
+            }
+
+            const cspHeader = headerMap.get('content-security-policy-report-only') || headerMap.get('content-security-policy');
+            if (!cspHeader) {
+              errors.push('vercel.json [/(.*)] tidak memuat Content-Security-Policy atau Content-Security-Policy-Report-Only');
+            } else {
+              if (cspHeader.includes("'unsafe-eval'")) {
+                errors.push("vercel.json CSP tidak boleh memuat 'unsafe-eval'!");
+              }
+              if (cspHeader.includes("default-src *") || cspHeader.includes("script-src *")) {
+                errors.push('vercel.json CSP tidak boleh memuat wildcard * pada default-src atau script-src!');
+              }
+            }
+          }
+
+          // Check /assets/(.*) immutable cache
+          const assetRule = vConfig.headers.find((h) => h.source === '/assets/(.*)');
+          if (!assetRule) {
+            errors.push('vercel.json tidak memuat header rule untuk source "/assets/(.*)"');
+          } else {
+            const cc = assetRule.headers.find((h) => h.key.toLowerCase() === 'cache-control');
+            if (!cc || !cc.value.includes('immutable')) {
+              errors.push('vercel.json [/assets/(.*)] tidak memuat Cache-Control immutable');
+            }
+          }
+        }
+      }
+    }
+
+    // -------------------------------------------------------------------------
     // Phase 1: Test Full Enforcement Mode across ALL routes
     // -------------------------------------------------------------------------
     const port1 = await getFreePort();
@@ -224,26 +299,45 @@ async function runHeaderChecks() {
       }
     }
 
-    // 3. Test /sitemap.xml and /robots.txt
-    console.log('Verifying /sitemap.xml and /robots.txt endpoints...');
-    const sitemapRes = await fetch(`${baseUrl1}/sitemap.xml`, {
+    // 3. Test sitemaps and /robots.txt
+    console.log('Verifying sitemap index, child sitemaps, redirect, and /robots.txt endpoints...');
+
+    // 3a. Legacy /sitemap.xml 301 redirect check
+    const legacySitemapRes = await fetch(`${baseUrl1}/sitemap.xml`, {
       headers: { 'X-Forwarded-Proto': 'https' },
+      redirect: 'manual',
     });
-    if (sitemapRes.status !== 200) {
-      errors.push(`[/sitemap.xml] Status bukan 200, melainkan: ${sitemapRes.status}`);
+    if (legacySitemapRes.status !== 301) {
+      errors.push(`[/sitemap.xml] Status bukan 301, melainkan: ${legacySitemapRes.status}`);
     }
-    const sitemapType = sitemapRes.headers.get('content-type') || '';
-    if (!sitemapType.includes('application/xml')) {
-      errors.push(`[/sitemap.xml] Content-Type bukan "application/xml": "${sitemapType}"`);
-    }
-    if (sitemapRes.headers.has('x-powered-by')) {
-      errors.push('[/sitemap.xml] Header "X-Powered-By" masih ada');
-    }
-    const sitemapRobots = sitemapRes.headers.get('x-robots-tag');
-    if (sitemapRobots && sitemapRobots.includes('noindex')) {
-      errors.push('[/sitemap.xml] TIDAK boleh memiliki X-Robots-Tag: noindex');
+    const redirectLocation = legacySitemapRes.headers.get('location') || '';
+    if (!redirectLocation.includes('/sitemap_index.xml')) {
+      errors.push(`[/sitemap.xml] Redirect location bukan "/sitemap_index.xml": "${redirectLocation}"`);
     }
 
+    // 3b. XML Sitemaps (sitemap_index.xml, page-sitemap.xml, location-sitemap.xml)
+    const xmlEndpoints = ['/sitemap_index.xml', '/page-sitemap.xml', '/location-sitemap.xml'];
+    for (const endpoint of xmlEndpoints) {
+      const xmlRes = await fetch(`${baseUrl1}${endpoint}`, {
+        headers: { 'X-Forwarded-Proto': 'https' },
+      });
+      if (xmlRes.status !== 200) {
+        errors.push(`[${endpoint}] Status bukan 200, melainkan: ${xmlRes.status}`);
+      }
+      const contentType = xmlRes.headers.get('content-type') || '';
+      if (!contentType.includes('application/xml')) {
+        errors.push(`[${endpoint}] Content-Type bukan "application/xml": "${contentType}"`);
+      }
+      if (xmlRes.headers.has('x-powered-by')) {
+        errors.push(`[${endpoint}] Header "X-Powered-By" masih ada`);
+      }
+      const robotsHeader = xmlRes.headers.get('x-robots-tag');
+      if (robotsHeader && robotsHeader.includes('noindex')) {
+        errors.push(`[${endpoint}] TIDAK boleh memiliki X-Robots-Tag: noindex`);
+      }
+    }
+
+    // 3c. robots.txt
     const robotsRes = await fetch(`${baseUrl1}/robots.txt`, {
       headers: { 'X-Forwarded-Proto': 'https' },
     });
@@ -321,8 +415,7 @@ async function runHeaderChecks() {
     console.log(`  - COOP: same-origin & CORP: same-site: PASSED`);
     console.log(`  - Cache-Control: no-cache untuk HTML, immutable untuk /assets/*: PASSED`);
     console.log(`  - X-Powered-By dihapus di seluruh respon: PASSED`);
-    console.log(`  - Tidak ada Cross-Origin-Embedder-Policy (COEP): PASSED`);
-    console.log(`  - /sitemap.xml (200, application/xml) & /robots.txt (200, text/plain) tanpa noindex: PASSED`);
+    console.log(`  - Sitemaps (200 application/xml), /sitemap.xml (301 redirect), & /robots.txt (200 text/plain) tanpa noindex: PASSED`);
     process.exit(0);
   }
 }

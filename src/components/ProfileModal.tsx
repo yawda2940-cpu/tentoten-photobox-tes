@@ -69,7 +69,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
         {/* Action Buttons */}
         <div className="flex flex-col gap-2 pt-2">
           <a
-            href="https://wa.me/6281234567890?text=Halo%20Bento%20Admin%20TentoTen,%20saya%20mau%20tanya%20info%20photobox"
+            href="https://wa.me/6281330148068?text=Halo%20Bento%20Admin%20TentoTen,%20saya%20mau%20tanya%20info%20photobox"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full inline-flex items-center justify-center gap-2 bg-[#960011] hover:bg-[#c0111e] text-white py-3 rounded-full font-label-board text-xs uppercase tracking-wider font-bold border-2 border-[#1f1b11] shadow-[2px_2px_0px_#1f1b11] transition-all"

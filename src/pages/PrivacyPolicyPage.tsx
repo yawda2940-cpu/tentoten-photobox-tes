@@ -82,7 +82,7 @@ export const PrivacyPolicyPage: React.FC = () => {
               5. Hubungi Kami
             </h2>
             <p className="text-[#5c403d]">
-              Jika Anda memiliki pertanyaan atau ingin mengajukan permohonan penghapusan file foto digital lebih cepat sebelum 48 jam, silakan hubungi Bento Admin kami melalui WhatsApp di <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" className="text-[#960011] underline font-bold">+62 812-3456-7890</a> atau kunjungi halaman <a href="/contact" className="text-[#960011] underline font-bold">Kontak Kami</a>.
+              Jika Anda memiliki pertanyaan atau ingin mengajukan permohonan penghapusan file foto digital lebih cepat sebelum 48 jam, silakan hubungi Bento Admin kami melalui WhatsApp di <a href="https://wa.me/6281330148068" target="_blank" rel="noopener noreferrer" className="text-[#960011] underline font-bold">+62 813-3014-8068</a> atau kunjungi halaman <a href="/contact" className="text-[#960011] underline font-bold">Kontak Kami</a>.
             </p>
           </div>
         </div>

@@ -170,7 +170,7 @@ export const Footer: React.FC = () => {
             </a>
             <span>&bull;</span>
             <a
-              href="https://wa.me/6281234567890?text=Halo%20TentoTen%20Photobox"
+              href="https://wa.me/6281330148068?text=Halo%20TentoTen%20Photobox"
               target="_blank"
               rel="noopener noreferrer"
               data-track="whatsapp"

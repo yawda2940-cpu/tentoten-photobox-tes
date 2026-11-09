@@ -252,11 +252,54 @@ if (foundLocationPages < 4) {
 }
 
 // -----------------------------------------------------------------------------
-// 5. Assets Check (og-image.jpg)
+// 5. Assets Check (og-image.jpg) - Header SOF & Dimension Validation (Zero-Dependency)
 // -----------------------------------------------------------------------------
 const ogImagePath = path.resolve(distDir, 'og-image.jpg');
 if (!fs.existsSync(ogImagePath)) {
   errors.push(`dist/og-image.jpg tidak ditemukan!`);
+} else {
+  const stat = fs.statSync(ogImagePath);
+  if (stat.size < 10 * 1024 || stat.size > 300 * 1024) {
+    errors.push(`Ukuran dist/og-image.jpg tidak valid: ${(stat.size / 1024).toFixed(1)} KB (harus antara 10 KB dan 300 KB)`);
+  }
+
+  const buffer = fs.readFileSync(ogImagePath);
+  if (buffer.length < 2 || buffer[0] !== 0xff || buffer[1] !== 0xd8) {
+    errors.push(`Header dist/og-image.jpg tidak valid: byte awal bukan JPEG SOI FF D8`);
+  } else {
+    let offset = 2;
+    let dimensions = null;
+    while (offset < buffer.length) {
+      if (buffer[offset] !== 0xff) {
+        offset++;
+        continue;
+      }
+      const marker = buffer[offset + 1];
+      if (
+        (marker >= 0xc0 && marker <= 0xc3) ||
+        (marker >= 0xc5 && marker <= 0xc7) ||
+        (marker >= 0xc9 && marker <= 0xcb) ||
+        (marker >= 0xcd && marker <= 0xcf)
+      ) {
+        if (offset + 9 <= buffer.length) {
+          const height = buffer.readUInt16BE(offset + 5);
+          const width = buffer.readUInt16BE(offset + 7);
+          dimensions = { width, height };
+        }
+        break;
+      }
+      if (marker === 0xd9 || marker === 0xda) break;
+      if (offset + 4 > buffer.length) break;
+      const length = buffer.readUInt16BE(offset + 2);
+      offset += 2 + length;
+    }
+
+    if (!dimensions) {
+      errors.push(`Gagal membaca dimensi SOF dari header dist/og-image.jpg`);
+    } else if (dimensions.width !== 1200 || dimensions.height !== 630) {
+      errors.push(`Dimensi dist/og-image.jpg bukan 1200x630, melainkan ${dimensions.width}x${dimensions.height}`);
+    }
+  }
 }
 
 // -----------------------------------------------------------------------------
@@ -333,12 +376,91 @@ for (const route of ALL_ROUTES) {
   const description = descMatch ? descMatch[1].trim() : '';
   if (!description) {
     errors.push(`[${route}] Meta description kosong!`);
-  } else if (route !== '/404') {
-    if (descriptionsSeen.has(description)) {
-      errors.push(`[${route}] Meta description duplikat dengan rute ${descriptionsSeen.get(description)}`);
-    } else {
-      descriptionsSeen.set(description, route);
+  } else {
+    // 120-150 character hard range check
+    if (description.length < 120 || description.length > 150) {
+      errors.push(
+        `[${route}] Panjang meta description tidak valid: ${description.length} karakter (harus 120-150 karakter): "${description}"`
+      );
     }
+
+    if (route !== '/404') {
+      if (descriptionsSeen.has(description)) {
+        errors.push(`[${route}] Meta description duplikat dengan rute ${descriptionsSeen.get(description)}: "${description}"`);
+      } else {
+        descriptionsSeen.set(description, route);
+      }
+    }
+  }
+
+  // Location pages keyword check: must include "photobox", city name, and cafe name
+  if (route.startsWith('/location/')) {
+    const slug = route.replace('/location/', '');
+    const locationCafeMap = {
+      madiun: { city: 'madiun', cafe: 'sthana' },
+      jombang: { city: 'jombang', cafe: 'ethereal' },
+      ponorogo: { city: 'ponorogo', cafe: 'komahaus' },
+      kertosono: { city: 'kertosono', cafe: 'keyf' },
+    };
+    const req = locationCafeMap[slug];
+    if (req) {
+      const lowerDesc = description.toLowerCase();
+      if (!lowerDesc.includes('photobox')) {
+        errors.push(`[${route}] Meta description tidak memuat kata "photobox": "${description}"`);
+      }
+      if (!lowerDesc.includes(req.city)) {
+        errors.push(`[${route}] Meta description tidak memuat nama kota "${req.city}": "${description}"`);
+      }
+      if (!lowerDesc.includes(req.cafe)) {
+        errors.push(`[${route}] Meta description tidak memuat nama kafe "${req.cafe}": "${description}"`);
+      }
+    }
+  }
+
+  // og:description and twitter:description consistency
+  const ogDescMatch = html.match(/<meta\s+property=["']og:description["']\s+content=["']([\s\S]*?)["']/i);
+  const ogDescription = ogDescMatch ? ogDescMatch[1].trim() : '';
+  if (ogDescription !== description) {
+    errors.push(`[${route}] og:description tidak identik dengan meta description: "${ogDescription}" !== "${description}"`);
+  }
+
+  const twitterDescMatch = html.match(/<meta\s+name=["']twitter:description["']\s+content=["']([\s\S]*?)["']/i);
+  const twitterDescription = twitterDescMatch ? twitterDescMatch[1].trim() : '';
+  if (twitterDescription !== description) {
+    errors.push(`[${route}] twitter:description tidak identik dengan meta description: "${twitterDescription}" !== "${description}"`);
+  }
+
+  // OpenGraph Image & Twitter Image checks (must be absolute https://tentotenphotobox.biz.id/og-image.jpg)
+  const ogImgMatch = html.match(/<meta\s+property=["']og:image["']\s+content=["']([\s\S]*?)["']/i);
+  const ogImage = ogImgMatch ? ogImgMatch[1].trim() : '';
+  if (ogImage !== 'https://tentotenphotobox.biz.id/og-image.jpg') {
+    errors.push(`[${route}] og:image bukan "https://tentotenphotobox.biz.id/og-image.jpg", melainkan: "${ogImage}"`);
+  }
+
+  const twitterImgMatch = html.match(/<meta\s+name=["']twitter:image["']\s+content=["']([\s\S]*?)["']/i);
+  const twitterImage = twitterImgMatch ? twitterImgMatch[1].trim() : '';
+  if (twitterImage !== 'https://tentotenphotobox.biz.id/og-image.jpg') {
+    errors.push(`[${route}] twitter:image bukan "https://tentotenphotobox.biz.id/og-image.jpg", melainkan: "${twitterImage}"`);
+  }
+
+  const ogImgWidth = html.match(/<meta\s+property=["']og:image:width["']\s+content=["']([\s\S]*?)["']/i);
+  if (!ogImgWidth || ogImgWidth[1].trim() !== '1200') {
+    errors.push(`[${route}] og:image:width bukan 1200: "${ogImgWidth ? ogImgWidth[1] : 'kosong'}"`);
+  }
+
+  const ogImgHeight = html.match(/<meta\s+property=["']og:image:height["']\s+content=["']([\s\S]*?)["']/i);
+  if (!ogImgHeight || ogImgHeight[1].trim() !== '630') {
+    errors.push(`[${route}] og:image:height bukan 630: "${ogImgHeight ? ogImgHeight[1] : 'kosong'}"`);
+  }
+
+  const ogImgType = html.match(/<meta\s+property=["']og:image:type["']\s+content=["']([\s\S]*?)["']/i);
+  if (!ogImgType || ogImgType[1].trim() !== 'image/jpeg') {
+    errors.push(`[${route}] og:image:type bukan image/jpeg: "${ogImgType ? ogImgType[1] : 'kosong'}"`);
+  }
+
+  const ogImgAlt = html.match(/<meta\s+property=["']og:image:alt["']\s+content=["']([\s\S]*?)["']/i);
+  if (!ogImgAlt || !ogImgAlt[1].trim()) {
+    errors.push(`[${route}] og:image:alt kosong atau tidak ditemukan`);
   }
 
   // 7c. Canonical absolut
@@ -512,6 +634,44 @@ for (let i = 1; i <= 6; i++) {
       errors.push(`File thumbnail kreator kosong (0 bytes): dist/assets/creators/kreator-${i}.webp`);
     }
   }
+}
+
+// -----------------------------------------------------------------------------
+// 11. Image Size & Asset Integrity Audit (< 150 KB and no Copy_of_*.png references)
+// -----------------------------------------------------------------------------
+function auditDistAssets(dir) {
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    const fullPath = path.resolve(dir, entry.name);
+    if (entry.isDirectory()) {
+      auditDistAssets(fullPath);
+    } else if (entry.isFile()) {
+      const ext = path.extname(entry.name).toLowerCase();
+      // Check image sizes in dist/ (all images must be <= 150 KB)
+      if (['.jpg', '.jpeg', '.png', '.webp', '.avif'].includes(ext)) {
+        const stat = fs.statSync(fullPath);
+        const sizeKb = stat.size / 1024;
+        if (sizeKb > 150) {
+          errors.push(
+            `Ukuran gambar di dist/ melebihi 150 KB: ${path.relative(rootDir, fullPath)} (${sizeKb.toFixed(1)} KB)`
+          );
+        }
+      }
+      // Check that no HTML, JS, CSS, JSON, or XML file references Copy_of_*.png
+      if (['.html', '.js', '.css', '.json', '.xml'].includes(ext)) {
+        const content = fs.readFileSync(fullPath, 'utf-8');
+        if (/Copy_of_[a-zA-Z0-9_]+\.png/i.test(content)) {
+          errors.push(
+            `Ditemukan referensi ke Copy_of_*.png di dalam: ${path.relative(rootDir, fullPath)}`
+          );
+        }
+      }
+    }
+  }
+}
+
+if (fs.existsSync(distDir)) {
+  auditDistAssets(distDir);
 }
 
 console.log('\n--- RINGKASAN AUDIT PER RUTE ---');

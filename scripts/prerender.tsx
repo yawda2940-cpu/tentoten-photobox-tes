@@ -85,8 +85,10 @@ async function runPrerender() {
     headInject += `\n    <meta property="og:description" content="${meta.description}" />`;
     headInject += `\n    <meta property="og:url" content="${canonicalUrl}" />`;
     headInject += `\n    <meta property="og:image" content="${ogImageUrl}" />`;
+    headInject += `\n    <meta property="og:image:type" content="image/jpeg" />`;
     headInject += `\n    <meta property="og:image:width" content="1200" />`;
     headInject += `\n    <meta property="og:image:height" content="630" />`;
+    headInject += `\n    <meta property="og:image:alt" content="TentoTen Photobox - Booth photobox otomatis di kafe Jawa Timur" />`;
 
     // Twitter Card
     headInject += `\n    <meta name="twitter:card" content="summary_large_image" />`;

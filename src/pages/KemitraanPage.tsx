@@ -20,7 +20,7 @@ export const KemitraanPage: React.FC = () => {
 - Jenis Minat: ${formData.interest}
 - Cerita/Kebutuhan: ${formData.story || '-'}`;
 
-    const waUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(text)}`;
+    const waUrl = `https://wa.me/6281330148068?text=${encodeURIComponent(text)}`;
     window.open(waUrl, '_blank', 'noopener,noreferrer');
   };
 

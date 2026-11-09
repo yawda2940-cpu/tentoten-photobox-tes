@@ -290,7 +290,7 @@ export const LocationDetailPage: React.FC<LocationDetailPageProps> = ({ slug }) 
                   </a>
 
                   <a
-                    href={`https://wa.me/6281234567890?text=Halo%20TentoTen%20Photobox,%20saya%20mau%20tanya%20status%20booth%20di%20${encodeURIComponent(location.cafeName)}%20${location.name}`}
+                    href={`https://wa.me/6281330148068?text=Halo%20TentoTen%20Photobox,%20saya%20mau%20tanya%20status%20booth%20di%20${encodeURIComponent(location.cafeName)}%20${location.name}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     data-track="whatsapp"

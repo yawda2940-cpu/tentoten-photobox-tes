@@ -12,7 +12,7 @@ export const MobileQuickBar: React.FC = () => {
       </a>
 
       <a
-        href="https://wa.me/6281234567890?text=Halo%20TentoTen%20Photobox,%20saya%20mau%20tanya%20info%20photobox"
+        href="https://wa.me/6281330148068?text=Halo%20TentoTen%20Photobox,%20saya%20mau%20tanya%20info%20photobox"
         target="_blank"
         rel="noopener noreferrer"
         data-track="whatsapp"

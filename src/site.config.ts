@@ -47,7 +47,7 @@ export const LOCATIONS: Record<string, LocationDetail> = {
       'Mencari photobox di Madiun? TentoTen Photobox ada di Sthana Coffee, Jl. Setiaki No. 27, Kota Madiun. Kamu datang, pesan minuman, lalu foto di photobox sambil nongkrong. Satu sesi Rp35.000, dibayar di lokasi, tanpa booking. Halaman ini merangkum alamat, jam buka, cara menuju lokasi, hal yang perlu disiapkan, dan jawaban dari pertanyaan yang sering muncul tentang photobox TentoTen di Madiun.',
     title: 'Photobox Madiun di Sthana Coffee | TentoTen Photobox',
     description:
-      'Photobox di Madiun ada di Sthana Coffee, Jl. Setiaki No. 27. Rp35.000 per sesi, tanpa booking. Cek jam buka, petunjuk arah, dan custom frame Rp60.000.',
+      'Photobox di Madiun ada di Sthana Coffee, Jl. Setiaki No. 27. Rp35.000 per sesi, walk-in tanpa booking. Buka 08.00-24.00, ada custom frame.',
     address: 'Jl. Setiaki No. 27, Kota Madiun, Jawa Timur',
     regency: 'Kota Madiun',
     hours: '08.00-24.00',
@@ -85,7 +85,7 @@ export const LOCATIONS: Record<string, LocationDetail> = {
       'Kalau kamu sedang mencari photobox di Jombang, TentoTen Photobox ada di Ethereal Coffee, Jl. Kusuma Bangsa No. 23, Pulo Lor, Kecamatan Jombang, Kabupaten Jombang, Jawa Timur 61419. Satu sesi Rp35.000, dibayar di lokasi, tanpa booking. Halaman ini berisi alamat lengkap, jam buka, petunjuk menuju lokasi, saran waktu datang, informasi custom frame, dan jawaban atas pertanyaan yang sering diajukan tentang photobox di Jombang.',
     title: 'Photobox Jombang di Ethereal Coffee | TentoTen Photobox',
     description:
-      'Photobox di Jombang ada di Ethereal Coffee, Jl. Kusuma Bangsa No. 23, Pulo Lor. Rp35.000 per sesi, tanpa booking. Lihat jam buka, rute, dan custom frame.',
+      'Photobox di Jombang ada di Ethereal Coffee, Jl. Kusuma Bangsa No. 23. Rp35.000 per sesi, walk-in tanpa booking. Buka tiap hari 08.00-23.00.',
     address: 'Jl. Kusuma Bangsa No. 23, Pulo Lor, Kec. Jombang, Kab. Jombang, Jawa Timur 61419',
     regency: 'Kabupaten Jombang',
     postalCode: '61419',
@@ -124,7 +124,7 @@ export const LOCATIONS: Record<string, LocationDetail> = {
       'TentoTen Photobox di Ponorogo ada di Komahaus Coffee, Jl. Semeru No. 52, Nologaten, Kecamatan Ponorogo, Kabupaten Ponorogo. Kafe ini buka dari pukul 07.00 sampai 00.00, jam buka terpanjang di antara empat cabang TentoTen. Satu sesi Rp35.000, dibayar di lokasi, tanpa booking. Halaman ini membahas alamat, jam buka, cara menuju lokasi, waktu datang yang cocok, custom frame, dan pertanyaan yang sering muncul seputar photobox di Ponorogo.',
     title: 'Photobox Ponorogo di Komahaus Coffee | TentoTen',
     description:
-      'Photobox di Ponorogo ada di Komahaus Coffee, Jl. Semeru No. 52, Nologaten. Buka 07.00 sampai 00.00, Rp35.000 per sesi, tanpa booking. Cek rute dan custom frame.',
+      'Photobox di Ponorogo ada di Komahaus Coffee, Jl. Semeru No. 52. Rp35.000 per sesi, walk-in tanpa booking. Buka paling panjang 07.00-00.00.',
     address: 'Jl. Semeru No. 52, Nologaten, Kec. Ponorogo, Kab. Ponorogo, Jawa Timur',
     regency: 'Kabupaten Ponorogo',
     hours: '07.00-00.00',
@@ -162,7 +162,7 @@ export const LOCATIONS: Record<string, LocationDetail> = {
       'TentoTen Photobox di Kertosono ada di Keyf Coffee, Jl. Apel Gg. I, Pelem, Kutorejo, Kecamatan Kertosono, Kabupaten Nganjuk, Jawa Timur 64314. Kafe buka pukul 10.00 sampai 22.00. Satu sesi photobox Rp35.000, dibayar di lokasi, tanpa booking. Halaman ini memuat alamat lengkap, jam buka, cara menuju lokasi, saran waktu kunjungan, informasi custom frame, dan jawaban dari pertanyaan yang sering muncul tentang photobox di Kertosono dan sekitarnya, termasuk Nganjuk.',
     title: 'Photobox Kertosono di Keyf Coffee | TentoTen Photobox',
     description:
-      'Photobox di Kertosono ada di Keyf Coffee, Jl. Apel Gg. I, Pelem, Kutorejo, Nganjuk. Buka 10.00 sampai 22.00, Rp35.000 per sesi, tanpa booking.',
+      'Photobox di Kertosono ada di Keyf Coffee, Jl. Apel Gg. I Pelem Nganjuk. Rp35.000 per sesi, walk-in tanpa booking. Buka jam 10.00-22.00.',
     address: 'Jl. Apel Gg. I, Pelem, Kutorejo, Kec. Kertosono, Kab. Nganjuk, Jawa Timur 64314',
     regency: 'Kabupaten Nganjuk',
     postalCode: '64314',
@@ -207,28 +207,28 @@ export const PAGES_META: Record<string, PageMetaConfig> = {
     path: '/',
     title: 'TentoTen Photobox | Photobox di Kafe, Rp35.000 per Sesi',
     description:
-      'Photobox di dalam kafe di Madiun, Jombang, Ponorogo, dan Kertosono. Rp35.000 per sesi, bayar di lokasi, tanpa booking. Cek alamat, jam buka, dan custom frame.',
+      'Photobox di kafe Madiun, Jombang, Ponorogo, Kertosono. Rp35.000 per sesi, walk-in tanpa booking. Cetak fisik 35mm instan & custom frame.',
     h1: 'Photobox di Kafe Madiun, Jombang, Ponorogo, dan Kertosono'
   },
   '/product': {
     path: '/product',
     title: 'Harga Photobox dan Custom Frame | TentoTen Photobox',
     description:
-      'Sesi photobox Rp35.000. Custom frame Rp60.000 dengan file desain dari pelanggan sendiri. Bayar dan pakai langsung di lokasi, tanpa pemesanan online.',
+      'Sesi photobox Rp35.000 dan custom frame Rp60.000 di TentoTen. Datang langsung tanpa booking, bayar di lokasi, dapat 2 strip cetak fisik.',
     h1: 'Harga Photobox dan Custom Frame TentoTen'
   },
   '/service': {
     path: '/service',
     title: 'Layanan Photobox dan Custom Frame | TentoTen Photobox',
     description:
-      'Photobox di dalam kafe dan custom frame Rp60.000 dengan file desain sendiri. Lihat cara kerja, ketentuan custom frame, dan tanya admin lewat WhatsApp.',
+      'Layanan photobox di dalam kafe dan custom frame Rp60.000. Sesi Rp35.000 langsung di lokasi tanpa booking dengan cetak fisik instan & QR code.',
     h1: 'Layanan TentoTen Photobox: Photobox di Kafe dan Custom Frame'
   },
   '/location': {
     path: '/location',
     title: 'Lokasi Photobox di Madiun, Jombang, Ponorogo, Kertosono',
     description:
-      'Empat lokasi TentoTen Photobox: Sthana Coffee Madiun, Ethereal Coffee Jombang, Komahaus Coffee Ponorogo, Keyf Coffee Kertosono. Lihat alamat, jam buka, dan peta.',
+      'Lokasi photobox TentoTen di 4 kafe: Sthana Madiun, Ethereal Jombang, Komahaus Ponorogo, Keyf Kertosono. Rp35.000 per sesi tanpa booking.',
     h1: 'Lokasi TentoTen Photobox di Jawa Timur'
   },
   '/location/madiun': {
@@ -259,28 +259,28 @@ export const PAGES_META: Record<string, PageMetaConfig> = {
     path: '/kemitraan',
     title: 'Kemitraan & Pengadaan Photobox | TentoTen Photobox',
     description:
-      'Punya kafe atau usaha? TentoTen Photobox membuka dua jalur: kemitraan penempatan photobox dan pengadaan photobox. Isi form singkat dan chat admin via WhatsApp.',
+      'Peluang kemitraan penempatan dan pengadaan booth TentoTen Photobox untuk kafe di Jawa Timur. Ajukan lewat form singkat dan chat admin WhatsApp.',
     h1: 'Kemitraan dan Pengadaan Photobox untuk Kafe dan Usahamu'
   },
   '/contact': {
     path: '/contact',
     title: 'Hubungi TentoTen Photobox | Tanya Admin via WhatsApp',
     description:
-      'Hubungi admin TentoTen Photobox lewat WhatsApp untuk tanya jam buka, lokasi, atau custom frame. Isi form singkat, pesan langsung terbuka di WhatsApp.',
+      'Hubungi admin TentoTen Photobox lewat WhatsApp untuk tanya lokasi kafe, jam buka, atau custom frame Rp60.000. Pesan langsung terhubung cepat.',
     h1: 'Hubungi TentoTen Photobox'
   },
   '/kebijakan-privasi': {
     path: '/kebijakan-privasi',
     title: 'Kebijakan Privasi | TentoTen Photobox',
     description:
-      'Kebijakan privasi TentoTen Photobox menjelaskan bagaimana data foto fisik, unduhan digital via QR code, dan informasi pengunjung dikelola dengan aman.',
+      'Kebijakan privasi TentoTen Photobox mengatur keamanan cetak foto fisik, unduhan digital via QR code, dan perlindungan privasi tanpa pelacak PII.',
     h1: 'Kebijakan Privasi TentoTen Photobox'
   },
   '/404': {
     path: '/404',
     title: 'Halaman Tidak Ditemukan | TentoTen Photobox',
     description:
-      'Halaman yang Anda cari tidak dapat ditemukan di TentoTen Photobox. Silakan kembali ke beranda atau cek lokasi booth photobox terdekat.',
+      'Halaman tidak ditemukan di TentoTen Photobox. Kembali ke beranda untuk cek lokasi booth photobox di kafe terdekat dan info sesi Rp35.000.',
     h1: '404 - Halaman Tidak Ditemukan',
     noindex: true
   }

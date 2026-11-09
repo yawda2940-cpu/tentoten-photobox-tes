@@ -321,7 +321,7 @@ export const LocationPage: React.FC = () => {
           </div>
 
           <div className="text-center text-xs text-[#5c403d]">
-            Ada pertanyaan seputar lokasi dan jam buka? Tanyakan langsung ke tim TentoTen lewat <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" className="text-[#960011] font-bold underline">WhatsApp</a> sebelum mampir. Untuk pertanyaan umum, gunakan form di halaman <a href="/contact" className="text-[#960011] font-bold underline">Contact</a>.
+            Ada pertanyaan seputar lokasi dan jam buka? Tanyakan langsung ke tim TentoTen lewat <a href="https://wa.me/6281330148068" target="_blank" rel="noopener noreferrer" className="text-[#960011] font-bold underline">WhatsApp</a> sebelum mampir. Untuk pertanyaan umum, gunakan form di halaman <a href="/contact" className="text-[#960011] font-bold underline">Contact</a>.
           </div>
         </div>
       </section>
