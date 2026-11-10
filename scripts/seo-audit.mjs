@@ -578,7 +578,7 @@ if (fs.existsSync(homeHtmlPath)) {
 // -----------------------------------------------------------------------------
 if (fs.existsSync(homeHtmlPath)) {
   const homeHtml = fs.readFileSync(homeHtmlPath, 'utf-8');
-  const homeTikTokMatches = homeHtml.match(/https:\/\/vt\.tiktok\.com\/[a-zA-Z0-9_-]+\/?/g) || [];
+  const homeTikTokMatches = (homeHtml.match(/https:\/\/vt\.tiktok\.com\/[a-zA-Z0-9_-]+\/?/g) || []).map((u) => u.replace(/\/+$/, ''));
   const uniqueHomeTikTok = new Set(homeTikTokMatches);
   if (uniqueHomeTikTok.size < 3) {
     errors.push(`dist/index.html harus memuat minimal 3 tautan video TikTok kreator (ditemukan: ${uniqueHomeTikTok.size})`);
@@ -588,9 +588,9 @@ if (fs.existsSync(homeHtmlPath)) {
 const serviceHtmlPath = path.resolve(distDir, 'service', 'index.html');
 if (fs.existsSync(serviceHtmlPath)) {
   const serviceHtml = fs.readFileSync(serviceHtmlPath, 'utf-8');
-  const serviceTikTokMatches = serviceHtml.match(/https:\/\/vt\.tiktok\.com\/[a-zA-Z0-9_-]+\/?/g) || [];
+  const serviceTikTokMatches = (serviceHtml.match(/https:\/\/vt\.tiktok\.com\/[a-zA-Z0-9_-]+\/?/g) || []).map((u) => u.replace(/\/+$/, ''));
   const uniqueServiceTikTok = new Set(serviceTikTokMatches);
-  if (uniqueServiceTikTok.size < 6) {
+  if (uniqueServiceTikTok.size !== 6) {
     errors.push(`dist/service/index.html harus memuat tepat 6 tautan video TikTok kreator (ditemukan: ${uniqueServiceTikTok.size})`);
   }
 }
