@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SITE_URL, INDEXED_ROUTES, ALL_ROUTES, ROUTES } from '../src/routes.ts';
+import { CREATOR_VIDEOS } from '../src/data/creatorVideos.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -592,6 +593,20 @@ if (fs.existsSync(serviceHtmlPath)) {
   const uniqueServiceTikTok = new Set(serviceTikTokMatches);
   if (uniqueServiceTikTok.size !== 6) {
     errors.push(`dist/service/index.html harus memuat tepat 6 tautan video TikTok kreator (ditemukan: ${uniqueServiceTikTok.size})`);
+  }
+
+  // Pemeriksaan baru: jumlah kartu kreator di HTML /service sama dengan jumlah item di creatorVideos.ts
+  const cardCount = (serviceHtml.match(/Tonton di TikTok/g) || []).length;
+  if (cardCount !== CREATOR_VIDEOS.length) {
+    errors.push(`Jumlah kartu kreator di HTML /service (${cardCount}) tidak sama dengan jumlah item di creatorVideos.ts (${CREATOR_VIDEOS.length})`);
+  }
+
+  // Verifikasi seluruh URL dari creatorVideos.ts hadir di dist/service/index.html
+  for (const item of CREATOR_VIDEOS) {
+    const cleanUrl = item.url.replace(/\/+$/, '');
+    if (!serviceTikTokMatches.includes(cleanUrl)) {
+      errors.push(`URL video kreator ${item.url} tidak ditemukan di dist/service/index.html`);
+    }
   }
 }
 

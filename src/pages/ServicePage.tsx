@@ -259,7 +259,7 @@ Saya akan mengirimkan file desain langsung di chat ini.`;
       {/* 5. Konten Kreator (#konten-kreator) */}
       <section className="w-full max-w-full overflow-hidden bg-[#fff8f0] py-12 border-b-2 border-[#1f1b11]">
         <div className="w-full min-w-0">
-          <CreatorVideos variant="preview" /> 
+          <CreatorVideos variant="full" />
         </div>
       </section>
 
