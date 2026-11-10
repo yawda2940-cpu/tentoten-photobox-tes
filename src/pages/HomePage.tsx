@@ -8,22 +8,22 @@ export const HomePage: React.FC = () => {
       <section className="w-full bg-[#fff8f0] py-12 md:py-20 px-4 md:px-8 lg:px-12 border-b-2 border-[#1f1b11]">
         <div className="max-w-[1240px] mx-auto flex flex-col items-center gap-8 md:gap-12">
           <div className="flex flex-col items-center text-center gap-5 max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#ffdad6] border border-[#960011]/30 text-[#960011] text-xs font-bold tracking-widest uppercase">
-              <span className="w-2 h-2 rounded-full bg-[#960011] animate-pulse"></span>
-              PHOTOBOX ANALOG 35MM DI KAFE JAWA TIMUR
+            <div className="inline-flex flex-wrap justify-center items-center gap-2 px-3 py-1 rounded-full bg-[#ffdad6] border border-[#960011]/30 text-[#960011] text-[10px] sm:text-xs font-bold tracking-wider sm:tracking-widest uppercase max-w-full text-center">
+              <span className="w-2 h-2 rounded-full bg-[#960011] animate-pulse shrink-0"></span>
+              <span>PHOTOBOX ANALOG 35MM DI KAFE JAWA TIMUR</span>
             </div>
             {/* EXACT SINGLE H1 */}
-            <h1 className="font-display-hero text-3xl sm:text-5xl md:text-6xl lg:text-[70px] text-[#1f1b11] font-black tracking-tight leading-[1.05]">
+            <h1 className="font-display-hero text-3xl sm:text-5xl md:text-6xl lg:text-[70px] text-[#1f1b11] font-black tracking-tight leading-[1.08] break-words max-w-full">
               Photobox di Kafe Madiun, Jombang, Ponorogo, dan Kertosono
             </h1>
-            <p className="font-body-lg text-base md:text-lg text-[#5c403d] max-w-2xl mx-auto leading-relaxed">
+            <p className="font-body-lg text-base md:text-lg text-[#5c403d] max-w-2xl mx-auto leading-relaxed break-words">
               TentoTen Photobox adalah photobox yang ditempatkan di dalam kafe. Kamu datang, pesan minuman, lalu foto di photobox sambil nongkrong. Satu sesi Rp35.000, dibayar di lokasi, tanpa booking dan tanpa antre lewat aplikasi. Saat ini TentoTen ada di empat kafe: Sthana Coffee di Madiun, Ethereal Coffee di Jombang, Komahaus Coffee di Ponorogo, dan Keyf Coffee di Kertosono.
             </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-4 pt-2 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-2 w-full max-w-full">
               <a
                 href="/location"
-                className="inline-flex items-center justify-center bg-[#c0111e] hover:bg-[#960011] text-white font-label-board text-xs uppercase tracking-wider px-8 py-3.5 rounded-full border-2 border-[#1f1b11] shadow-[4px_4px_0px_#1f1b11] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all font-bold"
+                className="w-full sm:w-auto inline-flex items-center justify-center bg-[#c0111e] hover:bg-[#960011] text-white font-label-board text-xs uppercase tracking-wider px-6 sm:px-8 py-3.5 rounded-full border-2 border-[#1f1b11] shadow-[4px_4px_0px_#1f1b11] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all font-bold text-center"
               >
                 Lihat Semua Lokasi Kafe
               </a>
@@ -33,36 +33,35 @@ export const HomePage: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-track="whatsapp"
-                className="inline-flex items-center justify-center bg-transparent hover:bg-[#f6eddc] text-[#960011] font-label-board text-xs uppercase tracking-wider px-8 py-3.5 rounded-full border-2 border-[#960011] shadow-[4px_4px_0px_#960011] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all font-bold"
+                className="w-full sm:w-auto inline-flex items-center justify-center bg-transparent hover:bg-[#f6eddc] text-[#960011] font-label-board text-xs uppercase tracking-wider px-6 sm:px-8 py-3.5 rounded-full border-2 border-[#960011] shadow-[4px_4px_0px_#960011] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all font-bold text-center"
               >
                 Chat WhatsApp Admin
               </a>
             </div>
 
-            <div className="flex items-center justify-center gap-8 pt-5 border-t border-[#906f6c]/30 w-full max-w-md mx-auto">
-              <div>
-                <div className="font-headline-md text-2xl md:text-3xl text-[#960011] font-extrabold tracking-tight">
+            {/* Strip Statistik Responsif 3-Kolom */}
+            <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-5 border-t border-[#906f6c]/30 w-full max-w-md mx-auto text-center min-w-0">
+              <div className="min-w-0 px-1 border-r border-[#906f6c]/30">
+                <div className="font-headline-md text-xl sm:text-2xl md:text-3xl text-[#960011] font-extrabold tracking-tight truncate">
                   4 Cabang
                 </div>
-                <div className="font-body-sm text-xs text-[#5c403d]">
+                <div className="font-body-sm text-[11px] sm:text-xs text-[#5c403d] leading-tight break-words mt-0.5">
                   Kafe di Jawa Timur
                 </div>
               </div>
-              <div className="w-px h-8 bg-[#906f6c]/30"></div>
-              <div>
-                <div className="font-headline-md text-2xl md:text-3xl text-[#960011] font-extrabold tracking-tight">
+              <div className="min-w-0 px-1 border-r border-[#906f6c]/30">
+                <div className="font-headline-md text-xl sm:text-2xl md:text-3xl text-[#960011] font-extrabold tracking-tight truncate">
                   Rp35.000
                 </div>
-                <div className="font-body-sm text-xs text-[#5c403d]">
+                <div className="font-body-sm text-[11px] sm:text-xs text-[#5c403d] leading-tight break-words mt-0.5">
                   Per Sesi (2 Lembar)
                 </div>
               </div>
-              <div className="w-px h-8 bg-[#906f6c]/30"></div>
-              <div>
-                <div className="font-headline-md text-2xl md:text-3xl text-[#960011] font-extrabold tracking-tight">
+              <div className="min-w-0 px-1">
+                <div className="font-headline-md text-xl sm:text-2xl md:text-3xl text-[#960011] font-extrabold tracking-tight truncate">
                   Tanpa Antri
                 </div>
-                <div className="font-body-sm text-xs text-[#5c403d]">
+                <div className="font-body-sm text-[11px] sm:text-xs text-[#5c403d] leading-tight break-words mt-0.5">
                   Langsung Walk-In
                 </div>
               </div>
@@ -70,10 +69,10 @@ export const HomePage: React.FC = () => {
           </div>
 
           {/* Hero Photostrip Showcase Banner */}
-          <div className="w-full max-w-4xl bg-[#f6eddc] rounded-2xl border-2 border-[#1f1b11] p-4 sm:p-6 shadow-[6px_6px_0px_#1f1b11]">
+          <div className="w-full max-w-4xl bg-[#f6eddc] rounded-2xl border-2 border-[#1f1b11] p-4 sm:p-6 shadow-[4px_4px_0px_#1f1b11] sm:shadow-[6px_6px_0px_#1f1b11]">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-center">
               <div className="rounded-xl overflow-hidden border border-[#1f1b11] shadow-sm bg-neutral-900">
-                <picture>
+                <picture className="block w-full max-w-full">
                   <source
                     type="image/webp"
                     srcSet="https://lh3.googleusercontent.com/aida-public/AB6AXuBxWY9tynIhCj-mgfG_uTc9Vk-TMZFw1H7oOacMvswHOjGQI1O5p-3oVlQG6qMSQTLkuipKkaftvrtRRQn0fG0-HJ1vC6D8cczkJ4Yy7fd1e_99TEPR_--PT7MkHCrYvYLXEYTavLZ98c9at_-xWI-4NN-gB2uJiaLbK0tz9nRFMNRJ8q9sgB9fuHiaMr4MJo6930EFSO8bpBp-57YKefnyMwGWUb2RpJMa6r34AjkqxClrM7Q3ASZ2bw=rw"
@@ -92,7 +91,7 @@ export const HomePage: React.FC = () => {
               </div>
 
               <div className="rounded-xl overflow-hidden border border-[#1f1b11] shadow-sm bg-neutral-900">
-                <picture>
+                <picture className="block w-full max-w-full">
                   <source
                     type="image/webp"
                     srcSet="https://lh3.googleusercontent.com/aida-public/AB6AXuBAxf3-lN_oY3hUNVL_5IG-nuuhAcfdt25SB6LHWz6vdFZHb2r81PvAUbuL0RXdNW8QHb8XiMDj7FM7q3ZX2S1y0iN-P1I8WoC7Iw2VG5JsiiR4GIp5BTLnDvjEZVy7o02zAiK_x3sO4VMM7_fOUxvCyUOHRJnJgMviHxXGWjm_oQXbOhBMrjh7WqpxBHXC24qdW3MWJOUfvssOzMwC_WHTOZDYHtyIMoIETdXzcgDTslW-epnIxysQ_g=rw"
@@ -111,7 +110,7 @@ export const HomePage: React.FC = () => {
               </div>
 
               <div className="rounded-xl overflow-hidden border border-[#1f1b11] shadow-sm bg-neutral-900 hidden md:block">
-                <picture>
+                <picture className="block w-full max-w-full">
                   <source
                     type="image/webp"
                     srcSet="https://lh3.googleusercontent.com/aida-public/AB6AXuCltxkIOVmJEqz3znXtnrdX9JAwNuJmMf8EQ3-uu0jah4hQ386WnsBmPYye7ZqPPlgOxBixtUoZ1Z35ioM2Ud58PHFk1Wwb9aEK0Fx2HJBra4jd_XXHqWOSOi0T7hDW2PjQpQsgJiTjLU-XCSfarpran9F9YENuMO_JFfRlyNE4socXyDVpWUD80Egaq0un20uK6ZBenO2l5AgnKj-9GVW8SLTGK8O87wVhE9gq9NB-aNOeLV5PTW77YA=rw"
@@ -268,7 +267,7 @@ export const HomePage: React.FC = () => {
             </div>
             <a
               href="/product"
-              className="whitespace-nowrap px-6 py-3.5 bg-[#960011] hover:bg-[#c0111e] text-white font-label-board text-xs uppercase tracking-wider rounded-xl text-center font-bold shadow-[3px_3px_0px_#1f1b11] transition-colors"
+              className="w-full sm:w-auto shrink-0 px-6 py-3.5 bg-[#960011] hover:bg-[#c0111e] text-white font-label-board text-xs uppercase tracking-wider rounded-xl text-center font-bold shadow-[3px_3px_0px_#1f1b11] transition-colors"
             >
               Lihat Format Custom Frame
             </a>
@@ -451,7 +450,11 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* 6. KONTEN KREATOR */}
-      <CreatorVideos variant="preview" />
+      <section className="w-full max-w-full overflow-hidden bg-[#fff8f0] py-12 border-b-2 border-[#1f1b11]">
+        <div className="w-full min-w-0">
+          <CreatorVideos variant="preview" /> 
+        </div>
+      </section>
 
       {/* 6B. PUNYA KAFE / TEMPAT USAHA */}
       <section className="w-full bg-[#fcf3e2] py-12 px-4 md:px-8 lg:px-12 border-b-2 border-[#1f1b11]">
@@ -471,7 +474,7 @@ export const HomePage: React.FC = () => {
             </div>
             <a
               href="/kemitraan"
-              className="whitespace-nowrap px-6 py-3.5 bg-[#960011] hover:bg-[#c0111e] text-white font-label-board text-xs uppercase tracking-wider rounded-xl text-center font-bold shadow-[3px_3px_0px_#1f1b11] transition-colors"
+              className="w-full sm:w-auto shrink-0 px-6 py-3.5 bg-[#960011] hover:bg-[#c0111e] text-white font-label-board text-xs uppercase tracking-wider rounded-xl text-center font-bold shadow-[3px_3px_0px_#1f1b11] transition-colors"
             >
               Pelajari Kemitraan Photobox
             </a>

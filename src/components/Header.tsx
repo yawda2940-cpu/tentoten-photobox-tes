@@ -17,8 +17,8 @@ export const Header: React.FC<HeaderProps> = ({ currentPath }) => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-3 md:px-8 lg:px-12 pt-3 pointer-events-none">
-      <div className="max-w-[1240px] mx-auto pointer-events-auto">
+    <header className="fixed top-0 left-0 right-0 z-98 px-3 md:px-8 lg:px-12 pt-3 pointer-events-none w-full max-w-full">
+      <div className="w-full max-w-[1240px] mx-auto pointer-events-auto">
         <div className="h-16 md:h-20 bg-[#fcf3e2] rounded-full px-4 md:px-6 flex items-center justify-between shadow-[4px_4px_0px_#1f1b11] border-2 border-[#1f1b11] transition-all">
           {/* Logo & Brand */}
           <a
@@ -33,9 +33,6 @@ export const Header: React.FC<HeaderProps> = ({ currentPath }) => {
               height={36}
               className="h-8 md:h-9 w-auto object-contain mix-blend-multiply transition-transform group-hover:scale-105"
             />
-            <span className="font-headline-sm uppercase tracking-tight text-[#960011] font-extrabold text-xl leading-none">
-              TENTOTEN
-            </span>
           </a>
 
           {/* Desktop Navigation */}

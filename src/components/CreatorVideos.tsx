@@ -23,9 +23,9 @@ export const CreatorVideos: React.FC<CreatorVideosProps> = ({
     <section
       id={id}
       aria-labelledby={`${id}-heading`}
-      className="w-full bg-[#fcf3e2] py-14 md:py-20 px-4 md:px-8 lg:px-12 border-b-2 border-[#1f1b11]"
+      className="w-full max-w-full min-w-0 bg-[#fcf3e2] py-14 md:py-20 px-4 md:px-8 lg:px-12 border-b-2 border-[#1f1b11] overflow-hidden"
     >
-      <div className="max-w-[1240px] mx-auto">
+      <div className="w-full max-w-[1240px] min-w-0 mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#ffdad6] border border-[#960011]/30 text-[#960011] text-xs font-bold tracking-widest uppercase mb-3">
@@ -46,14 +46,14 @@ export const CreatorVideos: React.FC<CreatorVideosProps> = ({
         </div>
 
         {/* Video Cards Grid / Mobile Swipe */}
-        <div className="flex overflow-x-auto snap-x snap-mandatory pb-4 gap-6 scrollbar-none md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible">
+        <div className="w-full max-w-full min-w-0 flex overflow-x-auto snap-x snap-mandatory pb-4 gap-4 sm:gap-6 scrollbar-none md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible">
           {displayVideos.map((video, index) => {
             const isIframeLoaded = !!loadedIframes[video.id];
 
             return (
               <div
                 key={video.id}
-                className="snap-center shrink-0 w-[84vw] max-w-[330px] md:w-auto md:max-w-none group bg-[#fff8f0] rounded-2xl border-2 border-[#1f1b11] shadow-[4px_4px_0px_#1f1b11] hover:shadow-[6px_6px_0px_#1f1b11] hover:-translate-y-1 transition-all flex flex-col overflow-hidden text-left"
+                className="snap-center shrink-0 w-[82%] sm:w-[300px] md:w-auto md:max-w-none group bg-[#fff8f0] rounded-2xl border-2 border-[#1f1b11] shadow-[4px_4px_0px_#1f1b11] hover:shadow-[6px_6px_0px_#1f1b11] hover:-translate-y-1 transition-all flex flex-col overflow-hidden text-left"
               >
                 {/* Visual Panel bergaya Poster Film Analog 9:16 */}
                 <div

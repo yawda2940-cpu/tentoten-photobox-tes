@@ -111,17 +111,17 @@ export default function App({ initialPath }: AppProps) {
   };
 
   return (
-    <div className="min-h-screen bg-[#fff8f0] text-[#1f1b11] flex flex-col font-sans selection:bg-[#960011] selection:text-white pb-16 md:pb-0">
+    <div className="min-h-screen bg-[#fff8f0] text-[#1f1b11] flex flex-col font-sans selection:bg-[#960011] selection:text-white pb-16 md:pb-0 w-full max-w-full overflow-x-clip">
       {/* Fixed Sticky Header */}
       <Header currentPath={currentPath} />
 
       {/* Main Content Area */}
-      <main className="flex-1 w-full" id="main-content">
-        {renderCurrentPage()}
-      </main>
-
-      {/* Global Footer */}
-      <Footer />
+      <div className="min-h-screen bg-[#fff8f0] text-[#1f1b11] flex flex-col font-sans selection:bg-[#960011] selection:text-white pb-16 md:pb-0 w-full overflow-x-hidden relative">
+        <main className="flex-1 w-full min-w-0" id="main-content">
+          {renderCurrentPage()}
+        </main>
+        <Footer />
+      </div>
 
       {/* Mobile Floating Quick Bar */}
       <MobileQuickBar />

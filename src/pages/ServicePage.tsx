@@ -23,11 +23,11 @@ Saya akan mengirimkan file desain langsung di chat ini.`;
   return (
     <div className="flex flex-col w-full pt-20">
       {/* 1. Header & Breadcrumb */}
-      <section className="w-full bg-[#fff8f0] py-10 md:py-16 px-4 md:px-8 lg:px-12 border-b-2 border-[#1f1b11]">
-        <div className="max-w-[1240px] mx-auto">
+      <section className="w-full max-w-full min-w-0 bg-[#fff8f0] py-10 md:py-16 px-4 md:px-8 lg:px-12 border-b-2 border-[#1f1b11]">
+        <div className="w-full max-w-[1240px] min-w-0 mx-auto">
           {/* Breadcrumb */}
           <nav aria-label="Breadcrumb" className="mb-4">
-            <ol className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#5c403d]">
+            <ol className="flex flex-wrap items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#5c403d]">
               <li>
                 <a href="/" className="hover:text-[#960011] transition-colors">
                   Beranda
@@ -41,14 +41,14 @@ Saya akan mengirimkan file desain langsung di chat ini.`;
           </nav>
 
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#ffdad6] border border-[#960011]/30 text-[#960011] text-xs font-bold tracking-widest uppercase mb-3">
-              ALUR PENGGUNAAN BOOTH & FRAME KHUSUS
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#ffdad6] border border-[#960011]/30 text-[#960011] text-[10px] sm:text-xs font-bold tracking-wider sm:tracking-widest uppercase mb-3 max-w-full text-center">
+              <span>ALUR PENGGUNAAN BOOTH &amp; FRAME KHUSUS</span>
             </div>
             {/* EXACT SINGLE H1 */}
-            <h1 className="font-display-hero text-3xl sm:text-5xl lg:text-6xl text-[#1f1b11] font-black tracking-tight leading-tight">
+            <h1 className="font-display-hero text-3xl sm:text-5xl lg:text-6xl text-[#1f1b11] font-black tracking-tight leading-tight break-words max-w-full">
               Layanan TentoTen Photobox: Photobox di Kafe dan Custom Frame
             </h1>
-            <p className="font-body-lg text-base md:text-lg text-[#5c403d] mt-4 leading-relaxed">
+            <p className="font-body-lg text-base md:text-lg text-[#5c403d] mt-4 leading-relaxed break-words">
               TentoTen Photobox punya dua layanan. Pertama, photobox di tempat: kamu datang ke kafe dan langsung foto. Kedua, custom frame: bingkai foto dengan desain buatanmu sendiri. Keduanya berjalan di lokasi, tanpa booking dan tanpa pembayaran online. Halaman ini menjelaskan cara kerja kedua layanan, apa yang kamu perlu siapkan, dan bagaimana mendapat bantuan bila diperlukan.
             </p>
           </div>
@@ -58,7 +58,7 @@ Saya akan mengirimkan file desain langsung di chat ini.`;
       {/* 2. Photobox di Tempat (#photobox-di-tempat) */}
       <section id="photobox-di-tempat" className="w-full bg-[#fcf3e2] py-14 px-4 md:px-8 lg:px-12 border-b-2 border-[#1f1b11]">
         <div className="max-w-[1240px] mx-auto">
-          <div className="bg-[#fff8f0] rounded-3xl border-2 border-[#1f1b11] p-6 sm:p-10 shadow-[6px_6px_0px_#1f1b11]">
+          <div className="bg-[#fff8f0] rounded-3xl border-2 border-[#1f1b11] p-5 sm:p-10 shadow-[4px_4px_0px_#1f1b11] sm:shadow-[6px_6px_0px_#1f1b11]">
             <span className="font-label-badge text-xs uppercase tracking-wider text-[#960011] font-bold block mb-1">
               LAYANAN 1 (WALK-IN)
             </span>
@@ -104,7 +104,7 @@ Saya akan mengirimkan file desain langsung di chat ini.`;
       {/* 3. Custom Frame (#custom-frame) */}
       <section id="custom-frame" className="w-full bg-[#fff8f0] py-14 px-4 md:px-8 lg:px-12 border-b-2 border-[#1f1b11]">
         <div className="max-w-[1240px] mx-auto">
-          <div className="bg-[#fcf3e2] rounded-3xl border-2 border-[#960011] p-6 sm:p-10 shadow-[6px_6px_0px_#960011]">
+          <div className="bg-[#fcf3e2] rounded-3xl border-2 border-[#960011] p-5 sm:p-10 shadow-[4px_4px_0px_#960011] sm:shadow-[6px_6px_0px_#960011]">
             <span className="font-label-badge text-xs uppercase tracking-wider text-[#960011] font-bold block mb-1">
               LAYANAN 2 (DESAIN SENDIRI)
             </span>
@@ -147,7 +147,7 @@ Saya akan mengirimkan file desain langsung di chat ini.`;
             </div>
 
             {/* Form Custom Frame di Halaman Service */}
-            <div className="mt-8 bg-[#fff8f0] rounded-2xl border-2 border-[#1f1b11] p-6 max-w-2xl mx-auto">
+            <div className="mt-8 bg-[#fff8f0] rounded-2xl border-2 border-[#1f1b11] p-4 sm:p-6 max-w-2xl mx-auto">
               <h3 className="font-headline-sm text-lg text-[#1f1b11] font-black mb-3 text-center">
                 Form Custom Frame
               </h3>
@@ -257,7 +257,11 @@ Saya akan mengirimkan file desain langsung di chat ini.`;
       </section>
 
       {/* 5. Konten Kreator (#konten-kreator) */}
-      <CreatorVideos variant="full" id="konten-kreator" />
+      <section className="w-full max-w-full overflow-hidden bg-[#fff8f0] py-12 border-b-2 border-[#1f1b11]">
+        <div className="w-full min-w-0">
+          <CreatorVideos variant="preview" /> 
+        </div>
+      </section>
 
       {/* 6. FAQ Layanan & Tips Memaksimalkan */}
       <section className="w-full bg-[#fcf3e2] py-14 px-4 md:px-8 lg:px-12 border-b-2 border-[#1f1b11]">
