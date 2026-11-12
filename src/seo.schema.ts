@@ -149,7 +149,7 @@ export function getProductServicesSchema() {
               category: 'Vintage Film',
               description:
                 'Frame seluloid film hitam klasik dengan lubang gerigi sprocket roll 35mm otentik dan penomoran frame film.',
-              image: `${SITE_URL}/assets/aistudio/Copy_of_3_0955a4a7.webp`
+              image: `${SITE_URL}/assets/aistudio/frame-custom-03.webp`
             }
           },
           {
@@ -161,7 +161,7 @@ export function getProductServicesSchema() {
               category: 'Vintage Film',
               description:
                 'Terinspirasi dari karcis masuk gedung bioskop jadul berwarna merah marun pekat dengan detail barcode otentik.',
-              image: `${SITE_URL}/assets/aistudio/Copy_of_2_6201babe.webp`
+              image: `${SITE_URL}/assets/aistudio/frame-custom-02.webp`
             }
           },
           {
@@ -173,7 +173,7 @@ export function getProductServicesSchema() {
               category: 'Retro & Pop Art',
               description:
                 'Frame ceria latar grid kuning hangat, stiker doodle awan bergelombang, bunga mekar, dan tipografi balon ceria.',
-              image: `${SITE_URL}/assets/aistudio/Copy_of_1_1381c22b.webp`
+              image: `${SITE_URL}/assets/aistudio/frame-custom-01.webp`
             }
           },
           {
@@ -185,7 +185,7 @@ export function getProductServicesSchema() {
               category: 'Retro & Pop Art',
               description:
                 'Desain pop art ala selebaran diskon supermarket retro dengan badge ALWAYS FRESH dan buah ceri manis.',
-              image: `${SITE_URL}/assets/aistudio/Copy_of_4_7860c18e.webp`
+              image: `${SITE_URL}/assets/aistudio/frame-custom-04.webp`
             }
           },
           {
@@ -197,7 +197,7 @@ export function getProductServicesSchema() {
               category: 'Retro & Pop Art',
               description:
                 'Desain parodi kemasan obat farmasi bernuansa biru royal bertuliskan 4 TABLET OBAT CAPEK HIDUP.',
-              image: `${SITE_URL}/assets/aistudio/Copy_of_10to10__1_12f04381.webp`
+              image: `${SITE_URL}/assets/aistudio/frame-10to10-01.webp`
             }
           },
           {
@@ -209,7 +209,7 @@ export function getProductServicesSchema() {
               category: 'Retro & Pop Art',
               description:
                 'Konsep kemasan koleksi mainan gantung die-cast retro berwarna merah berani PHOTO PACK.',
-              image: `${SITE_URL}/assets/aistudio/Copy_of_10to10__10_870e8037.webp`
+              image: `${SITE_URL}/assets/aistudio/frame-10to10-10.webp`
             }
           },
           {
@@ -221,7 +221,7 @@ export function getProductServicesSchema() {
               category: 'Y2K & Cute',
               description:
                 'Nostalgia era 2000-an padang rumput hijau, pemutar kaset pita, Tamagotchi, dan MP3 player.',
-              image: `${SITE_URL}/assets/aistudio/Copy_of_5_c2a18b89.webp`
+              image: `${SITE_URL}/assets/aistudio/frame-custom-05.webp`
             }
           },
           {
@@ -233,7 +233,7 @@ export function getProductServicesSchema() {
               category: 'Y2K & Cute',
               description:
                 'Pola taplak piknik kotak-kotak merah gingham dengan ilustrasi roti panggang mentega dan croissant renyah.',
-              image: `${SITE_URL}/assets/aistudio/Copy_of_6_b8fdd549.webp`
+              image: `${SITE_URL}/assets/aistudio/frame-custom-06.webp`
             }
           },
           {
@@ -245,7 +245,7 @@ export function getProductServicesSchema() {
               category: 'Aesthetic Editorial',
               description:
                 'Kontras monokrom hitam pekat strip putih elegan tipografi kaligrafi kursif Memoria dan aksen bunga merah.',
-              image: `${SITE_URL}/assets/aistudio/Copy_of_7_ba3b9613.webp`
+              image: `${SITE_URL}/assets/aistudio/frame-custom-07.webp`
             }
           },
           {
@@ -257,7 +257,7 @@ export function getProductServicesSchema() {
               category: 'Aesthetic Editorial',
               description:
                 'Desain editorial majalah modern krem lembut serif klasik Avenoir memories ahead of time.',
-              image: `${SITE_URL}/assets/aistudio/Copy_of_9_c0fd1bb8.webp`
+              image: `${SITE_URL}/assets/aistudio/frame-custom-09.webp`
             }
           },
           {
@@ -269,7 +269,7 @@ export function getProductServicesSchema() {
               category: 'Aesthetic Editorial',
               description:
                 'Palet warna pink pastel bingkai oval metalik futuristik mawar mekar dan tipografi I wish a rose.',
-              image: `${SITE_URL}/assets/aistudio/Copy_of_8_9587329d.webp`
+              image: `${SITE_URL}/assets/aistudio/frame-custom-08.webp`
             }
           }
         ]

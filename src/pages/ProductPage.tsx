@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { getProductServicesSchema } from '../seo.schema';
+import { LatestArticles } from '../components/LatestArticles';
 
 interface FrameTemplate {
   id: string;
@@ -20,7 +21,7 @@ const FRAME_TEMPLATES: FrameTemplate[] = [
     category: 'vintage',
     categoryLabel: 'Vintage Film',
     badge: '35mm Analog Roll',
-    image: '/assets/aistudio/Copy_of_3_0955a4a7.png',
+    image: '/assets/aistudio/frame-custom-03.png',
     description:
       'Frame seluloid film hitam klasik dengan lubang gerigi sprocket roll 35mm otentik, penomoran frame film 3A dan 4, serta tipografi retro TentoTen. Memberikan sentuhan nostalgia kamera analog yang timeless.',
     cutoutInfo: '4 jendela foto vertikal 35mm per strip',
@@ -32,7 +33,7 @@ const FRAME_TEMPLATES: FrameTemplate[] = [
     category: 'vintage',
     categoryLabel: 'Vintage Film',
     badge: 'Tiket Bioskop Retro',
-    image: '/assets/aistudio/Copy_of_2_6201babe.png',
+    image: '/assets/aistudio/frame-custom-02.png',
     description:
       'Terinspirasi dari karcis masuk gedung bioskop jadul berwarna merah marun pekat. Lengkap dengan detail nomor kursi "Seat no. 12 Row 3", barcode otentik, dan frame foto rounded bertingkat layaknya potongan film bioskop.',
     cutoutInfo: '4 frame foto horizontal berurutan dengan ornamen tiket',
@@ -44,7 +45,7 @@ const FRAME_TEMPLATES: FrameTemplate[] = [
     category: 'pop',
     categoryLabel: 'Retro & Pop Art',
     badge: 'Pop Art Doodle',
-    image: '/assets/aistudio/Copy_of_1_1381c22b.png',
+    image: '/assets/aistudio/frame-custom-01.png',
     description:
       'Frame ceria dengan latar grid kuning hangat, stiker doodle awan bergelombang warna-warni, kelopak bunga mekar, dan tipografi balon ceria "Kachi! Say Cheese". Penuh energi positif dan warna ceria.',
     cutoutInfo: '4 jendela awan bergelombang warna-warni per strip',
@@ -56,7 +57,7 @@ const FRAME_TEMPLATES: FrameTemplate[] = [
     category: 'pop',
     categoryLabel: 'Retro & Pop Art',
     badge: 'Diskon Pop Art',
-    image: '/assets/aistudio/Copy_of_4_7860c18e.png',
+    image: '/assets/aistudio/frame-custom-04.png',
     description:
       'Desain pop art ala selebaran diskon supermarket retro dengan warna biru cerah, badge ledakan "ALWAYS FRESH", label harga "$24 / $7.49", ilustrasi buah ceri manis, dan stempel jaminan kesegaran.',
     cutoutInfo: '4 jendela foto bernuansa banner promo toko kelontong',
@@ -68,7 +69,7 @@ const FRAME_TEMPLATES: FrameTemplate[] = [
     category: 'pop',
     categoryLabel: 'Retro & Pop Art',
     badge: 'Parodi Resep Obat',
-    image: '/assets/aistudio/Copy_of_10to10__1_12f04381.png',
+    image: '/assets/aistudio/frame-10to10-01.png',
     description:
       'Desain parodi kemasan obat farmasi bernuansa biru royal bertuliskan "Parajompo: 4 TABLET OBAT CAPEK HIDUP". Dilengkapi tabel takaran dosis tawa, komposisi kebahagiaan, dan indikasi penghilang penat rutinitas kerja atau kuliah.',
     cutoutInfo: '4 jendela pose berbingkai strip obat parodi',
@@ -80,7 +81,7 @@ const FRAME_TEMPLATES: FrameTemplate[] = [
     category: 'pop',
     categoryLabel: 'Retro & Pop Art',
     badge: 'Vintage Toy Pack',
-    image: '/assets/aistudio/Copy_of_10to10__10_870e8037.png',
+    image: '/assets/aistudio/frame-10to10-10.png',
     description:
       'Konsep kemasan koleksi mainan gantung die-cast retro berwarna merah berani dengan tulisan "PHOTO PACK: FOR THE DAYS WE WANT TO REMEMBER", lubang gantungan blister pack atas, dan stempel collector edition.',
     cutoutInfo: '4 bingkai foto koleksi kartu mainan retro',
@@ -92,7 +93,7 @@ const FRAME_TEMPLATES: FrameTemplate[] = [
     category: 'y2k',
     categoryLabel: 'Y2K & Cute',
     badge: 'Y2K Nostalgia',
-    image: '/assets/aistudio/Copy_of_5_c2a18b89.png',
+    image: '/assets/aistudio/frame-custom-05.png',
     description:
       'Nuansa nostalgia awal era 2000-an dengan hamparan padang rumput hijau cerah, langit biru berawan tipis, pemutar kaset pita retro, konsol Tamagotchi virtual pet, dan pemutar musik MP3 player.',
     cutoutInfo: '4 jendela foto bertema antarmuka gadget Y2K',
@@ -104,7 +105,7 @@ const FRAME_TEMPLATES: FrameTemplate[] = [
     category: 'y2k',
     categoryLabel: 'Y2K & Cute',
     badge: 'Picnic Checkers',
-    image: '/assets/aistudio/Copy_of_6_b8fdd549.png',
+    image: '/assets/aistudio/frame-custom-06.png',
     description:
       'Pola taplak piknik kotak-kotak merah gingham dengan hiasan ilustrasi roti panggang mentega lumer, croissant renyah, dan stempel apresiasi "Rating 10/10". Memberikan rasa hangat, manis, dan akrab.',
     cutoutInfo: '4 jendela foto bergaris tepi merah hangat',
@@ -116,7 +117,7 @@ const FRAME_TEMPLATES: FrameTemplate[] = [
     category: 'aesthetic',
     categoryLabel: 'Aesthetic Editorial',
     badge: 'Editorial Monokrom',
-    image: '/assets/aistudio/Copy_of_7_ba3b9613.png',
+    image: '/assets/aistudio/frame-custom-07.png',
     description:
       'Kombinasi kontras monokrom hitam pekat dengan strip putih elegan, tipografi kaligrafi kursif "Memoria", dan aksen bunga merah TentoTen. Menghadirkan kesan chic, timeless, dan berkelas tinggi.',
     cutoutInfo: '4 pose berjarak rapi dengan layout dual-tone tegas',
@@ -128,7 +129,7 @@ const FRAME_TEMPLATES: FrameTemplate[] = [
     category: 'aesthetic',
     categoryLabel: 'Aesthetic Editorial',
     badge: 'Modern Lookbook',
-    image: '/assets/aistudio/Copy_of_9_c0fd1bb8.png',
+    image: '/assets/aistudio/frame-custom-09.png',
     description:
       'Desain editorial majalah modern berwarna krem lembut dengan tipografi serif klasik "Avenoir. memories ahead of time", tata letak grid minimalis, dan barcode penanda tanggal memori.',
     cutoutInfo: '4 kotak foto presisi gaya lookbook majalah',
@@ -140,7 +141,7 @@ const FRAME_TEMPLATES: FrameTemplate[] = [
     category: 'aesthetic',
     categoryLabel: 'Aesthetic Editorial',
     badge: 'Pastel Romantic',
-    image: '/assets/aistudio/Copy_of_8_9587329d.png',
+    image: '/assets/aistudio/frame-custom-08.png',
     description:
       'Palet warna pink pastel lembut berpadu dengan bingkai oval metalik futuristik, kelopak mawar mekar, dan tipografi manis "I wish a rose". Menghadirkan kesan romantis, manis, dan elegan.',
     cutoutInfo: '4 jendela oval estetik dengan aksen kilau mutiara',
@@ -697,6 +698,10 @@ Saya akan mengirimkan file desain langsung di chat ini.`;
           </div>
         </div>
       </section>
+
+      {/* 7. Artikel Panduan Terbaru */}
+      <LatestArticles category="Panduan" count={2} bgClass="bg-[#fff8f0]" />
+
 
       {/* Lightbox Modal for Enlarge Frame Preview */}
       {activeModalFrame && (

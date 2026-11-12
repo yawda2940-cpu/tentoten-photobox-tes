@@ -1,5 +1,7 @@
 import React from 'react';
 import { LOCATIONS, LocationDetail } from '../site.config';
+import { LatestArticles } from '../components/LatestArticles';
+import type { AllowedLocationSlug } from '../data/posts.generated';
 
 interface CityContent {
   headlineWhy: string;
@@ -549,6 +551,13 @@ export const LocationDetailPage: React.FC<LocationDetailPageProps> = ({ slug }) 
           </div>
         </div>
       </section>
+
+      {/* 7B. Artikel Terbaru untuk Lokasi Ini */}
+      <LatestArticles
+        location={location.slug as AllowedLocationSlug}
+        count={2}
+        bgClass="bg-[#fcf3e2]"
+      />
 
       {/* 8. Tautan ke 3 Lokasi Lainnya */}
       <section className="w-full bg-[#fcf3e2] py-14 px-4 md:px-8 lg:px-12 border-b-2 border-[#1f1b11]">
