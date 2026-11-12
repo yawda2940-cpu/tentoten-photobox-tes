@@ -21,7 +21,7 @@ Repositori resmi website **TentoTen Photobox** (`https://tentotenphotobox.biz.id
 Daftar rute tunggal didefinisikan secara terpusat di `src/routes.ts` dengan klasifikasi `type` dan `indexable`:
 
 ### A. Rincian Tipe Rute
-1. **Tipe `page` (7 URL)**:
+1. **Tipe `page` (8 URL statis + indeks)**:
    - `/` — Beranda
    - `/product` — Harga Sesi Photobox & Custom Frame
    - `/service` — Panduan Alur Layanan Booth
@@ -29,33 +29,30 @@ Daftar rute tunggal didefinisikan secara terpusat di `src/routes.ts` dengan klas
    - `/kemitraan` — Kemitraan Kafe & Pengadaan Booth
    - `/contact` — Pusat Bantuan & Kontak WhatsApp
    - `/kebijakan-privasi` — Kebijakan Privasi
+   - `/artikel` — Indeks Artikel Panduan & Cerita Photobox
 2. **Tipe `location` (4 URL)**:
    - `/location/madiun` — Sthana Coffee Madiun
    - `/location/jombang` — Ethereal Coffee Jombang
    - `/location/ponorogo` — Komahaus Coffee Ponorogo
    - `/location/kertosono` — Keyf Coffee Kertosono (Nganjuk)
-3. **Tipe `post` (0 URL saat ini)**:
-   - Khusus artikel/konten dinamis masa depan. File `post-sitemap.xml` **tidak akan dibuat** dan tidak dicantumkan di index bila belum ada rute bertipe ini.
-4. **Non-Indexable (`indexable: false`)**:
+3. **Tipe `post` (Dinamis dari `content/posts/*.md`)**:
+   - Artikel dengan `draft: false` dan `date <= hari_ini_WIB` otomatis masuk `post-sitemap.xml`.
+   - File `post-sitemap.xml` **hanya dibuat** bila minimal terdapat 1 artikel terbit; bila 0 artikel terbit, file tidak dibuat dan tidak masuk indeks.
+4. **Paginasi (`/artikel/halaman/<n>`)**:
+   - Hanya dibuat jika jumlah artikel terbit melebihi 12 artikel. Halaman paginasi bersifat indexable (`index, follow`), dapat ditelusuri lewat tautan `<a href>`, dan sengaja **tidak** dimasukkan ke `page-sitemap.xml`.
+5. **Non-Indexable (`indexable: false`)**:
    - `/404` — Halaman kesalahan dengan HTTP 404 murni dan `noindex, nofollow` (tidak dicantumkan di sitemap).
 
-### B. Output Sitemap di `dist/`
-- **`sitemap_index.xml`**: Root `<sitemapindex>` yang mereferensikan semua sitemap anak aktif (`page-sitemap.xml`, `location-sitemap.xml`) lengkap dengan `<lastmod>` YYYY-MM-DD.
-- **`page-sitemap.xml`**: Root `<urlset>` berisi 7 URL bertipe `page`.
+### B. Output Sitemap & RSS di `dist/`
+- **`sitemap_index.xml`**: Root `<sitemapindex>` yang mereferensikan semua sitemap anak aktif (`page-sitemap.xml`, `location-sitemap.xml`, dan `post-sitemap.xml` jika ada artikel) lengkap dengan `<lastmod>` YYYY-MM-DD.
+- **`page-sitemap.xml`**: Root `<urlset>` berisi seluruh URL statis bertipe `page` termasuk `/artikel`.
 - **`location-sitemap.xml`**: Root `<urlset>` berisi 4 URL bertipe `location`.
-- **`post-sitemap.xml`**: HANYA dibuat otomatis ketika ada rute bertipe `post`.
+- **`post-sitemap.xml`**: HANYA dibuat otomatis ketika ada artikel bertipe `post` yang sudah terbit (`lastmod` mengikuti `updated || date` frontmatter).
+- **`feed.xml`**: Feed RSS 2.0 berisi artikel terbaru yang telah terbit (`application/rss+xml`).
 - **Legacy `sitemap.xml`**: Mengembalikan redirect 301 ke `/sitemap_index.xml` (tidak menyajikan isi sitemap terpisah).
 
-### C. Cara Menambah Rute Bertipe "post" di Masa Depan
-Untuk mempublikasikan artikel atau post baru, cukup daftarkan rute ke dalam array `ROUTES` di `src/routes.ts`:
-```typescript
-{ path: '/blog/judul-artikel', indexable: true, type: 'post' },
-```
-Saat menjalankan `npm run build`:
-1. Skrip SSG secara otomatis mengelompokkan rute dan menulis `dist/post-sitemap.xml`.
-2. `dist/sitemap_index.xml` secara otomatis menambahkan entri `<sitemap><loc>https://tentotenphotobox.biz.id/post-sitemap.xml</loc><lastmod>YYYY-MM-DD</lastmod></sitemap>`.
-3. Server Express di `server.ts` langsung melayani endpoint `/post-sitemap.xml` dengan status 200 dan header `application/xml`.
-4. Audit SEO otomatis memvalidasi keberadaan file serta kecocokan canonical tanpa perlu konfigurasi manual tambahan.
+### C. Cara Menambah Artikel Baru (Tanpa Menyentuh Kode)
+Lihat **Bagian 9: Sistem Artikel Markdown** di bawah. Cukup tambahkan berkas `.md` di `content/posts/` berdasarkan `content/_template.md` — build akan otomatis menghasilkan halaman `/artikel/<slug>`, memperbarui daftar "Artikel Terbaru", `post-sitemap.xml`, `sitemap_index.xml`, dan `feed.xml`.
 
 ---
 
@@ -232,3 +229,36 @@ Penyematan video kreator TikTok menggunakan pendekatan terarah untuk menyeimbang
    - Domain `https://www.tiktok.com` hanya diizinkan secara eksklusif pada direktif `frame-src`.
 4. **Cadangan Aksesibilitas & Non-JS**:
    - Setiap kartu selalu menyertakan tautan langsung `<a href={url} target="_blank" rel="noopener noreferrer nofollow sponsored">` sebagai alternatif tanpa JavaScript atau bagi pengguna yang memilih membuka aplikasi TikTok secara langsung.
+
+---
+
+## 9. Sistem Artikel Markdown, Penjadwalan, dan Build Harian
+
+Website menyediakan kolom artikel panduan dan cerita berbasis berkas Markdown di folder `content/posts/` (target penerbitan hingga 5 artikel per minggu tanpa perlu mengubah kode TypeScript maupun komponen React).
+
+### A. Cara Menulis & Menerbitkan Artikel Baru
+1. Salin `content/_template.md` ke `content/posts/<nama-slug>.md` (lihat daftar ide topik di `content/TOPIK.md`).
+2. Siapkan gambar sampul berukuran **<= 150 KB** (format `.webp` disarankan, rasio 1200x630 ideal untuk kartu OpenGraph) di dalam folder `public/assets/`, lalu isi path-nya pada field `image`.
+3. Isi frontmatter secara lengkap:
+   - `title`: **30–60 karakter** (otomatis menjadi `<title>` dan `<h1>`).
+   - `slug`: huruf kecil, angka, dan tanda hubung (`^[a-z0-9-]+$`), unik.
+   - `description`: **120–150 karakter** (menjadi meta description, `og:description`, dan `twitter:description`).
+   - `date`: format `YYYY-MM-DD` menurut zona waktu WIB (`Asia/Jakarta`).
+   - `updated`: opsional `YYYY-MM-DD` (`>= date`), menjadi `<lastmod>` pada `post-sitemap.xml`.
+   - `author`: opsional (default `"Tim TentoTen Photobox"`).
+   - `category`: kategori artikel (mis. `"Panduan"`, `"Tips Foto"`, `"Lokasi Kafe"`, `"Custom Frame"`).
+   - `locations`: array slug cabang relevan (`madiun`, `jombang`, `ponorogo`, `kertosono`), boleh `[]`.
+   - `image`, `imageAlt`, `imageWidth`, `imageHeight`: path lokal di `public/`, deskripsi alt, serta dimensi integer asli gambar.
+   - `draft`: `false` agar ikut terbit saat build, atau `true` bila masih draf.
+   - `faq`: opsional daftar `{ q, a }` untuk bagian tanya jawab di bawah artikel dan JSON-LD `FAQPage`.
+4. Aturan penulisan badan artikel:
+   - Minimal **300 kata** (ideal 500–800 kata), faktual, tanpa kata terlarang (`franchise`, `rental`, `wedding`, `berita`, `TODO`, `lorem`).
+   - Hanya gunakan heading `##` (H2) dan `###` (H3) secara berurutan; dilarang menulis `#` (H1) di badan Markdown.
+   - Sertakan minimal **2 tautan internal** ke halaman TentoTen (mis. `/location`, `/location/madiun`, `/product`, `/service`, `/contact`).
+   - Jangan menyisipkan HTML mentah, `<script>`, `<iframe>`, atau gambar inline `![...]()` di dalam isi artikel.
+
+### B. Penjadwalan Otomatis (Build Terjadwal Vercel)
+- Skrip `scripts/load-posts.ts` hanya menerbitkan artikel dengan `draft: false` dan `date <= tanggal hari ini (Asia/Jakarta)`. Artikel bertanggal masa depan tidak ikut ter-render ke `dist/`, tidak masuk sitemap, dan tidak tampil di halaman mana pun.
+- Workflow GitHub Actions `.github/workflows/daily-build.yml` dijadwalkan setiap hari pukul **00:10 WIB** (`10 17 * * *` UTC) untuk memicu **Vercel Deploy Hook**.
+- **Pengaturan Secret di GitHub**: Tambahkan Deploy Hook URL dari Vercel (*Project Settings -> Git -> Deploy Hooks*) ke repository secret bernama **`DEPLOY_HOOK_URL`** pada GitHub (*Settings -> Secrets and variables -> Actions*).
+

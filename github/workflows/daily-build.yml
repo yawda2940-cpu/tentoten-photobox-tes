@@ -1,0 +1,21 @@
+name: Build Terjadwal Harian Artikel TentoTen
+
+on:
+  schedule:
+    # 00:10 WIB (UTC+7) setiap hari = 17:10 UTC hari sebelumnya
+    - cron: '10 17 * * *'
+  workflow_dispatch:
+
+jobs:
+  trigger-vercel-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel Deploy Hook
+        env:
+          DEPLOY_HOOK_URL: ${{ secrets.DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$DEPLOY_HOOK_URL" ]; then
+            echo "Secret DEPLOY_HOOK_URL belum disetel di GitHub repository settings."
+            exit 1
+          fi
+          curl -fsS -X POST "$DEPLOY_HOOK_URL"

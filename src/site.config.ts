@@ -3,8 +3,21 @@
  * TentoTen Photobox
  */
 
-export { SITE_URL, ROUTES, INDEXED_ROUTES, ALL_ROUTES, SITEMAP_TYPE_MAP, type RouteItem, type RouteType } from './routes';
+export {
+  SITE_URL,
+  ROUTES,
+  INDEXED_ROUTES,
+  PAGINATION_PATHS,
+  CRAWLABLE_ROUTES,
+  ALL_ROUTES,
+  SITEMAP_TYPE_MAP,
+  POSTS_PER_PAGE,
+  TOTAL_ARTICLE_PAGES,
+  type RouteItem,
+  type RouteType
+} from './routes';
 import { SITE_URL, INDEXED_ROUTES, ALL_ROUTES } from './routes';
+import { PUBLISHED_POSTS } from './data/posts.generated';
 
 export const GA_ID = (typeof process !== 'undefined' && (process.env.GA_ID || process.env.VITE_GA_ID)) || '';
 export const GOOGLE_SITE_VERIFICATION = (typeof process !== 'undefined' && (process.env.GOOGLE_SITE_VERIFICATION || process.env.VITE_GOOGLE_SITE_VERIFICATION)) || '';
@@ -276,6 +289,13 @@ export const PAGES_META: Record<string, PageMetaConfig> = {
       'Kebijakan privasi TentoTen Photobox mengatur keamanan cetak foto fisik, unduhan digital via QR code, dan perlindungan privasi tanpa pelacak PII.',
     h1: 'Kebijakan Privasi TentoTen Photobox'
   },
+  '/artikel': {
+    path: '/artikel',
+    title: 'Artikel Panduan Photobox & Kafe | TentoTen Photobox',
+    description:
+      'Kumpulan artikel panduan photobox walk-in, tips pose, custom frame Rp60.000, dan info booth TentoTen di kafe Madiun, Jombang, Ponorogo, Kertosono.',
+    h1: 'Artikel TentoTen Photobox'
+  },
   '/404': {
     path: '/404',
     title: 'Halaman Tidak Ditemukan | TentoTen Photobox',
@@ -285,6 +305,40 @@ export const PAGES_META: Record<string, PageMetaConfig> = {
     noindex: true
   }
 };
+
+export function getRouteMeta(pagePath: string): PageMetaConfig | undefined {
+  if (PAGES_META[pagePath]) {
+    return PAGES_META[pagePath];
+  }
+
+  if (pagePath.startsWith('/artikel/halaman/')) {
+    const pageNumStr = pagePath.replace('/artikel/halaman/', '');
+    const pageNum = Number(pageNumStr);
+    if (Number.isInteger(pageNum) && pageNum >= 2) {
+      return {
+        path: pagePath,
+        title: `Artikel TentoTen Photobox - Halaman ${pageNum} | TentoTen`,
+        description: `Artikel panduan photobox walk-in, tips pose, custom frame, dan info lokasi kafe TentoTen Jawa Timur halaman ${pageNum}. Sesi Rp35.000 di lokasi.`,
+        h1: `Artikel TentoTen Photobox - Halaman ${pageNum}`,
+      };
+    }
+  }
+
+  if (pagePath.startsWith('/artikel/')) {
+    const slug = pagePath.replace('/artikel/', '');
+    const post = PUBLISHED_POSTS.find((p) => p.slug === slug);
+    if (post) {
+      return {
+        path: pagePath,
+        title: `${post.title} | TentoTen Photobox`,
+        description: post.description,
+        h1: post.title,
+      };
+    }
+  }
+
+  return undefined;
+}
 
 export const INDEXED_PATHS = INDEXED_ROUTES;
 export const ALL_PATHS = ALL_ROUTES;

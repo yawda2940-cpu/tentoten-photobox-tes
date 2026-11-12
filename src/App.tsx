@@ -11,7 +11,12 @@ import { LocationDetailPage } from './pages/LocationDetailPage';
 import { ContactPage } from './pages/ContactPage';
 import { KemitraanPage } from './pages/KemitraanPage';
 import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
+import { ArtikelIndexPage } from './pages/ArtikelIndexPage.tsx';
+import { ArtikelPostPage } from './pages/ArtikelPostPage';
 import { NotFoundPage } from './pages/NotFoundPage';
+import { PUBLISHED_POSTS } from './data/posts.generated';
+import { TOTAL_ARTICLE_PAGES } from './routes';
+import { getRouteMeta } from './site.config';
 
 interface AppProps {
   initialPath?: string;
@@ -35,6 +40,15 @@ export default function App({ initialPath }: AppProps) {
   const [currentPath, setCurrentPath] = useState<string>(
     normalize(initialPath || getClientPath())
   );
+
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      const meta = getRouteMeta(currentPath);
+      if (meta?.title) {
+        document.title = meta.title;
+      }
+    }
+  }, [currentPath]);
 
   useEffect(() => {
     const handlePopState = () => {
@@ -105,10 +119,33 @@ export default function App({ initialPath }: AppProps) {
         return <ContactPage />;
       case '/kebijakan-privasi':
         return <PrivacyPolicyPage />;
-      default:
+      case '/artikel':
+        return <ArtikelIndexPage page={1} />;
+      default: {
+        if (currentPath.startsWith('/artikel/halaman/')) {
+          const numStr = currentPath.slice('/artikel/halaman/'.length);
+          if (/^\d+$/.test(numStr)) {
+            const pageNum = Number(numStr);
+            if (pageNum >= 2 && pageNum <= TOTAL_ARTICLE_PAGES) {
+              return <ArtikelIndexPage page={pageNum} />;
+            }
+          }
+          return <NotFoundPage />;
+        }
+
+        if (currentPath.startsWith('/artikel/')) {
+          const slug = currentPath.slice('/artikel/'.length);
+          if (slug && !slug.includes('/') && PUBLISHED_POSTS.some((p) => p.slug === slug)) {
+            return <ArtikelPostPage slug={slug} />;
+          }
+          return <NotFoundPage />;
+        }
+
         return <NotFoundPage />;
+      }
     }
   };
+
 
   return (
     <div className="min-h-screen bg-[#fff8f0] text-[#1f1b11] flex flex-col font-sans selection:bg-[#960011] selection:text-white pb-16 md:pb-0 w-full max-w-full overflow-x-clip">

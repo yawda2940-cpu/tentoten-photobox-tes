@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TentoTen Photobox - Artikel</title>
+    <link>https://tentotenphotobox.biz.id/artikel</link>
+    <description>Panduan photobox walk-in, tips pose 35mm, custom frame, dan info lokasi kafe TentoTen di Jawa Timur.</description>
+    <language>id</language>
+    <lastBuildDate>Fri, 13 Nov 2026 00:00:00 +0700</lastBuildDate>
+    <atom:link href="https://tentotenphotobox.biz.id/feed.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { CreatorVideos } from '../components/CreatorVideos';
+import { LatestArticles } from '../components/LatestArticles';
 
 export const HomePage: React.FC = () => {
   return (
@@ -8,7 +9,7 @@ export const HomePage: React.FC = () => {
       <section className="w-full bg-[#fff8f0] py-12 md:py-20 px-4 md:px-8 lg:px-12 border-b-2 border-[#1f1b11]">
         <div className="max-w-[1240px] mx-auto flex flex-col items-center gap-8 md:gap-12">
           <div className="flex flex-col items-center text-center gap-5 max-w-3xl">
-            <div className="inline-flex flex-wrap justify-center items-center gap-2 px-3 py-1 rounded-full bg-[#ffdad6] border border-[#960011]/30 text-[#960011] text-[10px] sm:text-xs font-bold tracking-wider sm:tracking-widest uppercase max-w-full text-center">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#ffdad6] border border-[#960011]/30 text-[#960011] text-[10px] sm:text-xs font-bold tracking-wider sm:tracking-widest uppercase max-w-full text-center">
               <span className="w-2 h-2 rounded-full bg-[#960011] animate-pulse shrink-0"></span>
               <span>PHOTOBOX ANALOG 35MM DI KAFE JAWA TIMUR</span>
             </div>
@@ -449,12 +450,15 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
+      {/* 5B. ARTIKEL TERBARU */}
+      <LatestArticles
+        count={3}
+        variant="featured"
+        bgClass="bg-[#fcf3e2]"
+      />
+
       {/* 6. KONTEN KREATOR */}
-      <section className="w-full max-w-full overflow-hidden bg-[#fff8f0] py-12 border-b-2 border-[#1f1b11]">
-        <div className="w-full min-w-0">
-          <CreatorVideos variant="preview" /> 
-        </div>
-      </section>
+      <CreatorVideos variant="preview" />
 
       {/* 6B. PUNYA KAFE / TEMPAT USAHA */}
       <section className="w-full bg-[#fcf3e2] py-12 px-4 md:px-8 lg:px-12 border-b-2 border-[#1f1b11]">

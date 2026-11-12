@@ -1,4 +1,5 @@
 import { SITE_URL, LOCATIONS, LocationDetail } from './site.config';
+import { PUBLISHED_POSTS } from './data/posts.generated';
 
 export function getOrganizationSchema() {
   return {
@@ -404,6 +405,84 @@ export function getPageSchemas(path: string): object[] {
         { name: 'Kebijakan Privasi', url: `${SITE_URL}/kebijakan-privasi` }
       ])
     );
+  } else if (path === '/artikel') {
+    schemas.push(
+      getBreadcrumbSchema([
+        { name: 'Beranda', url: SITE_URL },
+        { name: 'Artikel', url: `${SITE_URL}/artikel` }
+      ])
+    );
+  } else if (path.startsWith('/artikel/halaman/')) {
+    const pageNum = path.replace('/artikel/halaman/', '');
+    schemas.push(
+      getBreadcrumbSchema([
+        { name: 'Beranda', url: SITE_URL },
+        { name: 'Artikel', url: `${SITE_URL}/artikel` },
+        { name: `Halaman ${pageNum}`, url: `${SITE_URL}${path}` }
+      ])
+    );
+  } else if (path.startsWith('/artikel/')) {
+    const slug = path.replace('/artikel/', '');
+    const post = PUBLISHED_POSTS.find((p) => p.slug === slug);
+    if (post) {
+      const articleUrl = `${SITE_URL}/artikel/${post.slug}`;
+      schemas.push({
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: post.title,
+        description: post.description,
+        image: `${SITE_URL}${post.image}`,
+        datePublished: post.date,
+        dateModified: post.updated || post.date,
+        author:
+          post.author === 'Tim TentoTen Photobox'
+            ? {
+                '@type': 'Organization',
+                name: post.author,
+                url: SITE_URL
+              }
+            : {
+                '@type': 'Person',
+                name: post.author
+              },
+        publisher: {
+          '@type': 'Organization',
+          name: 'TentoTen Photobox',
+          url: SITE_URL,
+          logo: {
+            '@type': 'ImageObject',
+            url: `${SITE_URL}/assets/aistudio/tentotenred_2ac7af73.svg`
+          }
+        },
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': articleUrl
+        }
+      });
+
+      schemas.push(
+        getBreadcrumbSchema([
+          { name: 'Beranda', url: SITE_URL },
+          { name: 'Artikel', url: `${SITE_URL}/artikel` },
+          { name: post.title, url: articleUrl }
+        ])
+      );
+
+      if (post.faq && post.faq.length > 0) {
+        schemas.push({
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: post.faq.map((item) => ({
+            '@type': 'Question',
+            name: item.q,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: item.a
+            }
+          }))
+        });
+      }
+    }
   }
 
   return schemas;
