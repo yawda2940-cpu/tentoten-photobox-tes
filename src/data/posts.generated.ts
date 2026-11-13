@@ -37,8 +37,8 @@ export const PUBLISHED_POSTS: ArticlePost[] = [
     "title": "Apa Itu Photobox? 5 Hal yang Wajib Kamu Tahu",
     "slug": "apa-itu-photobox",
     "description": "Apa itu photobox dan gimana cara mainnya? Kenali 5 hal yang wajib kamu tahu sebelum coba, plus info sesi Rp35.000 di empat kota TentoTen.",
-    "date": "2026-11-13",
-    "author": "Tim TentoTen Photobox",
+    "date": "2026-11-14",
+    "author": "Tim TentoTen Photobox_Yawda Putra",
     "category": "Panduan",
     "locations": [
       "madiun",
@@ -233,6 +233,187 @@ export const PUBLISHED_POSTS: ArticlePost[] = [
       "/location/ponorogo",
       "/location/kertosono",
       "/contact"
+    ]
+  },
+  {
+    "title": "Apa Itu Self-Service Photobox? Foto Tanpa Operator",
+    "slug": "apa-itu-self-service-photobox",
+    "description": "Apa itu self-service photobox dan bagaimana cara kerjanya? Kenali tahapan foto mandiri, bedanya dengan photobooth operator, dan contohnya di Madiun.",
+    "date": "2026-10-16",
+    "author": "Tim TentoTen Photobox",
+    "category": "Panduan",
+    "locations": [
+      "madiun"
+    ],
+    "image": "/assets/creators/kreator-1.webp",
+    "imageAlt": "Pelanggan memakai photobox mandiri TentoTen tanpa bantuan operator",
+    "imageWidth": 520,
+    "imageHeight": 931,
+    "faq": [
+      {
+        "q": "Apa yang dimaksud dengan self-service?",
+        "a": "Self-service adalah sistem layanan yang memungkinkan pengguna menjalankan proses tertentu secara mandiri dengan mengikuti petunjuk atau perangkat yang disediakan."
+      },
+      {
+        "q": "Photo booth atau photobox bedanya apa?",
+        "a": "Istilahnya bisa berbeda tergantung penyedia layanan. Photobox sering merujuk pada unit foto mandiri, sedangkan photobooth juga dipakai untuk layanan foto acara yang dibantu operator."
+      },
+      {
+        "q": "Apa itu photobooth operator?",
+        "a": "Petugas yang membantu pengoperasian, mengawasi perangkat, atau mendampingi peserta selama sesi foto berlangsung."
+      },
+      {
+        "q": "Apa saja contoh pelayanan self-service?",
+        "a": "Contohnya mesin pembayaran mandiri, mesin tiket otomatis, mesin check-in mandiri, dan self-service photobox."
+      }
+    ],
+    "draft": false,
+    "html": "<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Self-service photobox adalah layanan foto mandiri yang memungkinkan pengguna mengambil foto tanpa dibantu operator secara langsung. Kamu cukup mengikuti petunjuk pada perangkat, memilih tampilan foto, lalu menikmati hasilnya sebagai kenang-kenangan bareng teman, pasangan, atau keluarga.</p>\n<h2 id=\"apa-yang-dimaksud-dengan-self-service-photobox\" class=\"font-headline-lg text-2xl sm:text-3xl text-[#1f1b11] font-black mt-8 mb-3 pt-2 scroll-mt-28 break-words\">Apa yang Dimaksud dengan Self-Service Photobox?</h2>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Pada konsep ini, pelanggan menjalankan proses pengambilan foto secara mandiri. Tidak perlu menunggu operator di setiap tahap karena alurnya dipandu sistem. Bergantung pada fasilitasnya, kamu bisa memilih frame atau filter, mengambil beberapa foto, lalu menerima hasil lewat cetak atau digital.</p>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Pengalamannya berbeda dari sesi foto yang dibantu fotografer. Kamu bebas mencoba ekspresi dan pose bersama orang terdekat. TentoTen Photobox menerapkan konsep ini lewat sistem otomatis yang mencakup pembayaran, pemilihan frame dan filter, pengambilan gambar, sampai pencetakan.</p>\n<h2 id=\"bagaimana-cara-kerjanya\" class=\"font-headline-lg text-2xl sm:text-3xl text-[#1f1b11] font-black mt-8 mb-3 pt-2 scroll-mt-28 break-words\">Bagaimana Cara Kerjanya?</h2>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Terlihat sederhana, tetapi ada perangkat dan sistem yang saling terhubung di baliknya. Berikut gambaran tahapannya.</p>\n<h3 id=\"1-memulai-sesi-foto\" class=\"font-headline-sm text-lg sm:text-xl text-[#1f1b11] font-bold mt-6 mb-2 scroll-mt-28 break-words\">1. Memulai sesi foto</h3>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Ikuti petunjuk pada perangkat. Kalau layanannya memakai pembayaran mandiri, selesaikan pembayaran dulu sebelum sesi dimulai. Alur dan pilihannya bisa berbeda antar penyedia.</p>\n<h3 id=\"2-memilih-frame-atau-filter\" class=\"font-headline-sm text-lg sm:text-xl text-[#1f1b11] font-bold mt-6 mb-2 scroll-mt-28 break-words\">2. Memilih frame atau filter</h3>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Frame adalah bingkai yang mempercantik tampilan foto, sedangkan filter memberi efek visual tertentu. Kamu bisa memilih gaya minimalis, ceria, atau yang cocok dengan suasana hari itu.</p>\n<h3 id=\"3-mengambil-foto-dan-mencoba-pose\" class=\"font-headline-sm text-lg sm:text-xl text-[#1f1b11] font-bold mt-6 mb-2 scroll-mt-28 break-words\">3. Mengambil foto dan mencoba pose</h3>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Bagian paling seru. Menurut <a href=\"https://www.youtube.com/live/X4eNgCsJHE8?si=Fq3Ej42hdziVVFkH\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-[#960011] font-bold underline hover:text-[#c0111e] break-words\">liputan RRI</a> tentang Ten to Ten, pelanggan bisa mengulang pengambilan gambar selama durasi sesi masih tersedia. Tetap perhatikan waktu supaya semuanya berjalan nyaman.</p>\n<h3 id=\"4-mendapatkan-hasil-foto\" class=\"font-headline-sm text-lg sm:text-xl text-[#1f1b11] font-bold mt-6 mb-2 scroll-mt-28 break-words\">4. Mendapatkan hasil foto</h3>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Setelah sesi selesai, sistem memproses hasilnya. Pada Ten to Ten, hasil foto dicetak otomatis, sedangkan file digital dikirim lewat WhatsApp. Jadi kamu bisa menikmati foto dalam bentuk fisik sekaligus menyimpan salinannya di ponsel.</p>\n<h2 id=\"beda-photobox-mandiri-dan-photobooth-dengan-operator\" class=\"font-headline-lg text-2xl sm:text-3xl text-[#1f1b11] font-black mt-8 mb-3 pt-2 scroll-mt-28 break-words\">Beda Photobox Mandiri dan Photobooth dengan Operator</h2>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Istilah photobox dan photobooth sering dipakai bergantian, tetapi dalam praktiknya bisa berbeda. Photobox mandiri dirancang agar pelanggan menjalankan sesi foto sendiri. Photobooth untuk acara sering melibatkan operator yang membantu peserta memahami proses, memastikan perangkat siap, menjaga antrean, dan menangani kendala teknis.</p>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Layanan mandiri bukan berarti tanpa manusia sama sekali. Pengelola tetap perlu merawat perangkat dan memeriksa kualitas hasil. Bedanya, tahapan utama dijalankan pelanggan sendiri.</p>\n<h2 id=\"contoh-layanan-self-service-lainnya\" class=\"font-headline-lg text-2xl sm:text-3xl text-[#1f1b11] font-black mt-8 mb-3 pt-2 scroll-mt-28 break-words\">Contoh Layanan Self-Service Lainnya</h2>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Konsep ini ada di banyak tempat, seperti mesin pembayaran mandiri, mesin tiket otomatis, dan mesin check-in mandiri. Intinya sama: pengguna menjalankan proses sendiri dengan bantuan sistem dan petunjuk yang jelas. Photobox mandiri termasuk di dalamnya, dengan tahapan pembayaran, pemilihan tampilan, pengambilan gambar, dan penerimaan hasil.</p>\n<h2 id=\"kenapa-menarik-untuk-dicoba\" class=\"font-headline-lg text-2xl sm:text-3xl text-[#1f1b11] font-black mt-8 mb-3 pt-2 scroll-mt-28 break-words\">Kenapa Menarik untuk Dicoba?</h2>\n<ul class=\"list-disc pl-5 sm:pl-6 mb-5 space-y-2 marker:text-[#960011] marker:font-bold\"><li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\"><strong>Fleksibel.</strong> Kamu mengikuti alur sesuai petunjuk tanpa selalu bertanya ke operator, jadi lebih leluasa bereksperimen.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\"><strong>Jadi aktivitas bareng.</strong> Memilih pose dan melihat hasil bersama adalah bagian serunya.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\"><strong>Hasil jadi kenang-kenangan.</strong> Foto cetak bisa masuk album atau jurnal, file digital mudah dilihat ulang dan dibagikan.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\"><strong>Teknologi plus kreativitas.</strong> Liputan RRI juga menyebut fitur Live Photo dan GIF di Ten to Ten, jadi pengalamannya tidak terbatas pada gambar diam. Fitur tiap layanan bisa berbeda, jadi cek informasi terbaru dari penyedianya.</li></ul>\n<h2 id=\"pengalaman-self-service-photobox-di-tentoten\" class=\"font-headline-lg text-2xl sm:text-3xl text-[#1f1b11] font-black mt-8 mb-3 pt-2 scroll-mt-28 break-words\">Pengalaman Self-Service Photobox di TentoTen</h2>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">TentoTen Photobox adalah layanan photobox otomatis yang dikembangkan di Madiun. Menurut liputan RRI, layanan ini memakai perangkat fotografi dan perangkat lunak untuk menjalankan proses foto secara mandiri, mulai dari pembayaran, pemilihan frame dan filter, pengambilan gambar, hingga pencetakan, plus pengiriman file digital lewat WhatsApp.</p>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Mau tahu pilihan frame dan layanan custom frame? Buka <a href=\"/product\" class=\"text-[#960011] font-bold underline hover:text-[#c0111e] break-words\">halaman harga dan custom frame</a>. Cari cabang terdekat di <a href=\"/location\" class=\"text-[#960011] font-bold underline hover:text-[#c0111e] break-words\">halaman lokasi kafe</a>, atau lihat <a href=\"/location/madiun\" class=\"text-[#960011] font-bold underline hover:text-[#c0111e] break-words\">photobox Madiun di Sthana Coffee</a>. Pertanyaan lain bisa kamu cek di <a href=\"/service\" class=\"text-[#960011] font-bold underline hover:text-[#c0111e] break-words\">halaman layanan</a>. Pastikan juga memeriksa fasilitas, jam operasional, dan ketentuan terbaru sebelum berkunjung.</p>\n",
+    "toc": [
+      {
+        "id": "apa-yang-dimaksud-dengan-self-service-photobox",
+        "text": "Apa yang Dimaksud dengan Self-Service Photobox?"
+      },
+      {
+        "id": "bagaimana-cara-kerjanya",
+        "text": "Bagaimana Cara Kerjanya?"
+      },
+      {
+        "id": "beda-photobox-mandiri-dan-photobooth-dengan-operator",
+        "text": "Beda Photobox Mandiri dan Photobooth dengan Operator"
+      },
+      {
+        "id": "contoh-layanan-self-service-lainnya",
+        "text": "Contoh Layanan Self-Service Lainnya"
+      },
+      {
+        "id": "kenapa-menarik-untuk-dicoba",
+        "text": "Kenapa Menarik untuk Dicoba?"
+      },
+      {
+        "id": "pengalaman-self-service-photobox-di-tentoten",
+        "text": "Pengalaman Self-Service Photobox di TentoTen"
+      }
+    ],
+    "wordCount": 564,
+    "internalLinks": [
+      "/product",
+      "/location",
+      "/location/madiun",
+      "/service"
+    ]
+  },
+  {
+    "title": "Inspirasi Photobooth Frame Estetik di TentoTen",
+    "slug": "inspirasi-photobooth-frame-estetik",
+    "description": "Cari inspirasi photobooth frame estetik? Kenali pilihan frame reguler Rp35.000 dan custom frame Rp60.000, plus tips memilih frame yang pas.",
+    "date": "2026-10-16",
+    "author": "Tim TentoTen Photobox",
+    "category": "Custom Frame",
+    "locations": [
+      "madiun",
+      "jombang",
+      "ponorogo",
+      "kertosono"
+    ],
+    "image": "/assets/creators/kreator-5.webp",
+    "imageAlt": "Beberapa contoh desain photobooth frame hasil cetak TentoTen Photobox",
+    "imageWidth": 520,
+    "imageHeight": 931,
+    "faq": [
+      {
+        "q": "Berapa harga frame reguler di TentoTen?",
+        "a": "Frame reguler bisa dinikmati dengan harga Rp35.000 per sesi, dengan pilihan desain bawaan yang tersedia di mesin."
+      },
+      {
+        "q": "Berapa harga custom frame di TentoTen?",
+        "a": "Layanan custom frame Rp60.000, dengan desain yang kamu siapkan atau request sendiri."
+      },
+      {
+        "q": "Bagaimana cara memesan custom frame?",
+        "a": "Hubungi tim TentoTen lewat WhatsApp admin beberapa waktu sebelum datang, lalu kirim aset desain atau request tema supaya desainmu siap dipakai di mesin."
+      }
+    ],
+    "draft": false,
+    "html": "<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Hasil cetak dari photobox punya daya tarik tersendiri. Berbeda dari selfie di ponsel, foto yang dicetak terasa klasik, nyata, dan bisa disimpan sebagai kenang-kenangan fisik. Rahasia yang bikin hasilnya makin unik dan estetik ada di satu hal: <em>photobooth frame</em>.</p>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Frame menentukan vibe sebuah foto. Photobox sekarang tidak lagi hanya menawarkan bingkai putih atau hitam yang kaku. Pilihannya makin beragam, dari warna pastel manis, tema retro, sampai desain kolaborasi yang trendi.</p>\n<h2 id=\"kenapa-photobooth-frame-itu-penting\" class=\"font-headline-lg text-2xl sm:text-3xl text-[#1f1b11] font-black mt-8 mb-3 pt-2 scroll-mt-28 break-words\">Kenapa Photobooth Frame Itu Penting?</h2>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Bagi sebagian orang, bingkai cuma pembatas antara foto dan tepian kertas. Padahal perannya lebih besar:</p>\n<ol class=\"list-decimal pl-5 sm:pl-6 mb-5 space-y-2 marker:text-[#960011] marker:font-bold\"><li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\"><strong>Memperkuat tema.</strong> Frame dengan hiasan bunga dan warna merah muda cocok untuk Valentine, sedangkan frame gelap dan misterius seru untuk Halloween.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\"><strong>Bikin foto lebih estetik.</strong> Saat hasil cetak kamu foto ulang untuk Instagram Story atau TikTok, frame yang lucu langsung menarik perhatian.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\"><strong>Jadi penanda memori.</strong> Elemen grafis kecil atau tanggal di frame akan membawamu bernostalgia ke momen itu, lima atau sepuluh tahun lagi.</li></ol>\n<h2 id=\"pilihan-frame-di-tentoten-reguler-dan-custom\" class=\"font-headline-lg text-2xl sm:text-3xl text-[#1f1b11] font-black mt-8 mb-3 pt-2 scroll-mt-28 break-words\">Pilihan Frame di TentoTen: Reguler dan Custom</h2>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">TentoTen Photobox membagi pilihan frame jadi dua kategori yang terjangkau: frame reguler dan custom frame.</p>\n<h3 id=\"frame-reguler-rp35000\" class=\"font-headline-sm text-lg sm:text-xl text-[#1f1b11] font-bold mt-6 mb-2 scroll-mt-28 break-words\">Frame reguler, Rp35.000</h3>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Cocok untuk hangout akhir pekan atau mengabadikan OOTD bareng sahabat. Dengan Rp35.000, kamu bisa pilih:</p>\n<ul class=\"list-disc pl-5 sm:pl-6 mb-5 space-y-2 marker:text-[#960011] marker:font-bold\"><li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\"><strong>Desain bawaan beragam.</strong> Mulai dari gaya Korean minimalis dengan warna pastel seperti sage green, lilac, atau soft pink, gaya Y2K dengan elemen pop-art, sampai frame klasik hitam dan putih.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\"><strong>Berbagai layout.</strong> Misalnya format 4-cut vertikal yang populer di Korea Selatan, atau 2-strip klasik yang bisa dibagi berdua. Semuanya bisa dipilih lewat layar sentuh.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\"><strong>Kualitas cetak premium.</strong> Kertasnya glossy berkualitas tinggi, tahan lama, dan tidak mudah pudar.</li></ul>\n<h3 id=\"custom-frame-rp60000\" class=\"font-headline-sm text-lg sm:text-xl text-[#1f1b11] font-bold mt-6 mb-2 scroll-mt-28 break-words\">Custom frame, Rp60.000</h3>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Mau merayakan sesuatu dengan kenang-kenangan yang benar-benar personal? Layanan custom frame Rp60.000 memberi ruang bagi imajinasimu. Beberapa idenya:</p>\n<ul class=\"list-disc pl-5 sm:pl-6 mb-5 space-y-2 marker:text-[#960011] marker:font-bold\"><li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\"><strong>Ulang tahun.</strong> Tambahkan nama, tanggal lahir, dan karakter favorit di desain frame. Kado kejutan yang susah dilupakan.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\"><strong>Anniversary.</strong> Pakai inisial berdua, kutipan favorit, atau tanggal jadian. Hasilnya bisa dipajang di kamar atau di balik casing ponsel.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\"><strong>Event komunitas atau fandom.</strong> Masukkan logo grup, foto kecil idola, atau warna khas fandom untuk gathering kalian.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\"><strong>Promosi bisnis.</strong> Pelaku usaha lokal bisa memasang logo di frame sebagai media promosi fisik, karena pelanggan biasanya menyimpan hasil fotonya.</li></ul>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Prosesnya mudah. Koordinasi dengan tim TentoTen beberapa waktu sebelum datang, kirim aset desain atau request tema, lalu desainmu siap dipakai di mesin.</p>\n<h2 id=\"tips-memilih-frame-biar-hasil-maksimal\" class=\"font-headline-lg text-2xl sm:text-3xl text-[#1f1b11] font-black mt-8 mb-3 pt-2 scroll-mt-28 break-words\">Tips Memilih Frame biar Hasil Maksimal</h2>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Pilihan yang banyak kadang bikin bingung. Ikuti tips ini supaya hasilnya tetap aesthetic:</p>\n<ol class=\"list-decimal pl-5 sm:pl-6 mb-5 space-y-2 marker:text-[#960011] marker:font-bold\"><li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\"><strong>Sesuaikan dengan outfit.</strong> Kalau bajumu bermotif ramai atau sangat cerah, pilih frame polos dan netral seperti putih, hitam, atau abu-abu. Kalau outfit-mu monokrom atau kasual, frame mencolok atau bermotif lucu bisa menghidupkan suasana.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\"><strong>Perhatikan kontras dengan latar.</strong> Lihat warna dinding bilik, lalu pastikan frame yang kamu pilih di layar tidak bertabrakan dengan latar fotomu.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\"><strong>Manfaatkan props.</strong> Kacamata unik, bando karakter, atau topi gemas bisa disesuaikan dengan tema frame yang akan dicetak.</li></ol>\n<h2 id=\"siap-foto-di-tentoten\" class=\"font-headline-lg text-2xl sm:text-3xl text-[#1f1b11] font-black mt-8 mb-3 pt-2 scroll-mt-28 break-words\">Siap Foto di TentoTen?</h2>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Foto di photobox adalah soal menangkap momen spontan yang jujur dan penuh tawa. Baik kamu mau pakai desain yang sudah tersedia seharga Rp35.000 atau custom frame Rp60.000 untuk momen spesial, TentoTen siap membantu.</p>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Lihat detail pilihan di <a href=\"/product\" class=\"text-[#960011] font-bold underline hover:text-[#c0111e] break-words\">halaman harga dan custom frame</a>, cari cabang terdekat di <a href=\"/location\" class=\"text-[#960011] font-bold underline hover:text-[#c0111e] break-words\">halaman lokasi kafe</a>, atau cek <a href=\"/service\" class=\"text-[#960011] font-bold underline hover:text-[#c0111e] break-words\">halaman layanan</a>. Untuk pesan custom frame, hubungi admin lewat <a href=\"https://wa.me/+6281330148068\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-[#960011] font-bold underline hover:text-[#c0111e] break-words\">WhatsApp TentoTen</a>.</p>\n",
+    "toc": [
+      {
+        "id": "kenapa-photobooth-frame-itu-penting",
+        "text": "Kenapa Photobooth Frame Itu Penting?"
+      },
+      {
+        "id": "pilihan-frame-di-tentoten-reguler-dan-custom",
+        "text": "Pilihan Frame di TentoTen: Reguler dan Custom"
+      },
+      {
+        "id": "tips-memilih-frame-biar-hasil-maksimal",
+        "text": "Tips Memilih Frame biar Hasil Maksimal"
+      },
+      {
+        "id": "siap-foto-di-tentoten",
+        "text": "Siap Foto di TentoTen?"
+      }
+    ],
+    "wordCount": 536,
+    "internalLinks": [
+      "/product",
+      "/location",
+      "/service"
+    ]
+  },
+  {
+    "title": "5 Tips Pose Photobox agar Foto Bareng Teman Menarik",
+    "slug": "tips-pose-photobox",
+    "description": "Bingung mau pose apa saat timer photobox jalan? Coba 5 tips pose photobox ini, dari candid sampai close-up, biar hasil foto bareng teman makin seru.",
+    "date": "2026-10-16",
+    "author": "Tim TentoTen Photobox",
+    "category": "Tips Foto",
+    "locations": [
+      "madiun",
+      "jombang",
+      "ponorogo",
+      "kertosono"
+    ],
+    "image": "/assets/creators/kreator-5.webp",
+    "imageAlt": "Dua teman berpose seru di dalam photobox TentoTen",
+    "imageWidth": 520,
+    "imageHeight": 931,
+    "faq": [
+      {
+        "q": "Kenapa harus menyiapkan pose sebelum masuk photobox?",
+        "a": "Timer hitung mundur sering bikin panik dan akhirnya pose jadi itu-itu saja. Dengan rencana pose, sesi lebih santai dan setiap frame punya variasi ekspresi yang seimbang."
+      },
+      {
+        "q": "Bagaimana kalau foto bareng teman dan wajah tertutup tangan?",
+        "a": "Atur posisi tangan dan aksesori supaya semua wajah terlihat jelas, lalu variasikan tinggi tangan tiap orang agar komposisinya menarik."
+      }
+    ],
+    "draft": false,
+    "html": "<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Sering mati gaya saat timer photobox mulai berjalan? Tenang, kamu tidak sendirian. Hitung mundur di layar sering bikin panik, dan akhirnya kita mengeksekusi gaya yang itu-itu saja. Padahal dengan sedikit trik dan referensi, hasil jepretanmu bisa tampil alami, aesthetic, dan tidak kaku. Berikut lima tips pose photobox yang bisa langsung dicoba di sesi berikutnya.</p>\n<h2 id=\"kenapa-harus-menyiapkan-gaya-sebelum-masuk\" class=\"font-headline-lg text-2xl sm:text-3xl text-[#1f1b11] font-black mt-8 mb-3 pt-2 scroll-mt-28 break-words\">Kenapa Harus Menyiapkan Gaya Sebelum Masuk?</h2>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Ruang di dalam photobox punya sudut pandang (<em>angle</em>) yang khas. Tidak seperti studio konvensional, tidak ada fotografer yang mengarahkan, jadi kamu mengandalkan kemandirian dan kreativitas sendiri.</p>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Rencana gaya sebelum masuk menghemat waktu dan bikin proses lebih santai. Hasilnya, setiap frame cetakan punya variasi ekspresi yang seimbang.</p>\n<h2 id=\"5-ide-pose-yang-wajib-dicoba\" class=\"font-headline-lg text-2xl sm:text-3xl text-[#1f1b11] font-black mt-8 mb-3 pt-2 scroll-mt-28 break-words\">5 Ide Pose yang Wajib Dicoba</h2>\n<h3 id=\"1-pose-candid-dan-tawa-alami\" class=\"font-headline-sm text-lg sm:text-xl text-[#1f1b11] font-bold mt-6 mb-2 scroll-mt-28 break-words\">1. Pose candid dan tawa alami</h3>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Gaya ini menonjolkan ekspresi spontan saat tertawa bersama teman, cocok untuk suasana akrab tanpa harus selalu menatap kamera.</p>\n<ul class=\"list-disc pl-5 sm:pl-6 mb-5 space-y-2 marker:text-[#960011] marker:font-bold\"><li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\">Berdiri berdekatan dengan teman di posisi yang nyaman.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\">Mulai dengan berpura-pura bercerita sesuatu yang lucu atau saling melontarkan candaan ringan.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\">Saat kamera mengambil gambar, tertawalah natural. Kamu juga bisa menoleh ke teman seolah merespons ucapannya.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\">Di frame berikutnya, ubah arah pandang atau posisi tubuh agar hasilnya tidak seragam.</li></ul>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\"><strong>Tips:</strong> jangan memaksakan tawa berlebihan. Saling menggoda atau menahan senyum justru sering menghasilkan ekspresi menarik.</p>\n<h3 id=\"2-peace-sign-dengan-variasi-tiap-frame\" class=\"font-headline-sm text-lg sm:text-xl text-[#1f1b11] font-bold mt-6 mb-2 scroll-mt-28 break-words\">2. Peace sign dengan variasi tiap frame</h3>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Peace sign mudah dikreasikan. Daripada memakai posisi jari yang sama sepanjang sesi, buat rangkaian pose berbeda di setiap frame supaya satu lembar foto terasa dinamis.</p>\n<ul class=\"list-disc pl-5 sm:pl-6 mb-5 space-y-2 marker:text-[#960011] marker:font-bold\"><li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\">Frame pertama: dua jari membentuk V di samping wajah sambil tersenyum.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\">Frame kedua: pindahkan tangan ke dekat pipi atau sedikit di atas kepala.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\">Frame ketiga: peace sign dengan kedua tangan dan ekspresi berbeda.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\">Frame terakhir: ajak teman menyilangkan tangan atau membuat V bersamaan.</li></ul>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\"><strong>Tips:</strong> atur jarak tangan supaya tidak menutupi mata. Kalau berfoto berdua atau berkelompok, variasikan tinggi tangan setiap orang.</p>\n<h3 id=\"3-pose-dengan-properti-studio\" class=\"font-headline-sm text-lg sm:text-xl text-[#1f1b11] font-bold mt-6 mb-2 scroll-mt-28 break-words\">3. Pose dengan properti studio</h3>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Kacamata, aksesori kepala, papan kecil, atau benda dekoratif bisa menambah karakter foto. Kuncinya, jadikan properti pendukung ekspresi, bukan sekadar dipegang di depan kamera.</p>\n<ul class=\"list-disc pl-5 sm:pl-6 mb-5 space-y-2 marker:text-[#960011] marker:font-bold\"><li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\">Pilih aksesori sesuai suasana, misalnya kacamata untuk gaya santai atau aksesori kepala untuk tampilan playful.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\">Pegang properti di dekat bahu atau wajah tanpa menghalangi kamera.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\">Buat interaksi bareng teman, seperti bertukar aksesori atau menunjuk benda yang sama.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\">Di pengambilan berikutnya, ubah cara memakainya agar ceritanya berbeda.</li></ul>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\"><strong>Tips:</strong> pakai properti yang memang disediakan atau diizinkan, dan pastikan tidak menutupi wajah.</p>\n<h3 id=\"4-head-tilt-dan-lean-in-saling-bersandar\" class=\"font-headline-sm text-lg sm:text-xl text-[#1f1b11] font-bold mt-6 mb-2 scroll-mt-28 break-words\">4. Head-tilt dan lean-in (saling bersandar)</h3>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Cocok untuk foto bareng sahabat, pasangan, atau keluarga. Kepala sedikit miring dan tubuh saling mendekat memberi kesan hangat, sekaligus mengisi ruang frame tanpa terlihat kaku.</p>\n<ul class=\"list-disc pl-5 sm:pl-6 mb-5 space-y-2 marker:text-[#960011] marker:font-bold\"><li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\">Berdiri berdampingan.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\">Miringkan kepala ke arah satu sama lain, lalu dekatkan bahu perlahan.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\">Pilih ekspresi: senyum tipis, mata terpejam, atau tatapan langsung ke kamera.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\">Untuk variasi, satu orang menyandarkan kepala ke bahu teman, yang lain melihat ke kamera.</li></ul>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\"><strong>Tips:</strong> jaga jarak agar dua wajah tetap jelas, dan bergerak pelan kalau selisih tinggi badan cukup jauh.</p>\n<h3 id=\"5-close-up-ekspresi-wajah\" class=\"font-headline-sm text-lg sm:text-xl text-[#1f1b11] font-bold mt-6 mb-2 scroll-mt-28 break-words\">5. Close-up ekspresi wajah</h3>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Pose ini berfokus pada wajah, jadi perubahan kecil seperti senyum, kedipan, atau gerakan bibir jadi daya tarik utama. Hasilnya juga menjadi variasi dari foto dengan komposisi seluruh badan.</p>\n<ul class=\"list-disc pl-5 sm:pl-6 mb-5 space-y-2 marker:text-[#960011] marker:font-bold\"><li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\">Dekatkan wajah ke kamera sesuai ruang yang tersedia.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\">Pastikan dagu dan dahi tidak terpotong.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\">Pakai ekspresi yang jelas, seperti mengembungkan pipi, mengedip satu mata, tersenyum lebar, atau memasang wajah terkejut.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\">Kalau bareng teman, posisikan wajah bertingkat atau berdampingan agar semua masuk area gambar.</li></ul>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\"><strong>Tips:</strong> jangan mendekat terlalu jauh. Perhatikan batas frame sebelum kamera mengambil gambar.</p>\n<h2 id=\"tips-tambahan-biar-hasil-makin-maksimal\" class=\"font-headline-lg text-2xl sm:text-3xl text-[#1f1b11] font-black mt-8 mb-3 pt-2 scroll-mt-28 break-words\">Tips Tambahan biar Hasil Makin Maksimal</h2>\n<ul class=\"list-disc pl-5 sm:pl-6 mb-5 space-y-2 marker:text-[#960011] marker:font-bold\"><li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\"><strong>Nikmati momennya.</strong> Tidak perlu sempurna di setiap foto, keseruan prosesnya juga bagian dari kenangan.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\"><strong>Perhatikan posisi tubuh.</strong> Jangan berdiri terlalu kaku.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\"><strong>Pastikan wajah tidak tertutup.</strong> Atur tangan dan aksesori.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\"><strong>Bagi ide pose dengan teman.</strong> Diskusikan beberapa gaya sebelum sesi mulai.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\"><strong>Jangan takut bereksperimen.</strong> Pose yang berbeda dari biasanya sering menghasilkan foto yang lebih personal.</li></ul>\n<h2 id=\"abadikan-momen-seru-di-tentoten-photobox\" class=\"font-headline-lg text-2xl sm:text-3xl text-[#1f1b11] font-black mt-8 mb-3 pt-2 scroll-mt-28 break-words\">Abadikan Momen Seru di TentoTen Photobox</h2>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Dari peace sign, pose kompak bareng teman, sampai ekspresi spontan, semuanya bisa jadi bahan untuk rangkaian foto yang bervariasi. Siapkan beberapa ide pose, ajak orang-orang terdekatmu, lalu ciptakan foto yang enak dikenang.</p>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Cari cabang terdekat di <a href=\"/location\" class=\"text-[#960011] font-bold underline hover:text-[#c0111e] break-words\">halaman lokasi kafe</a>, lihat pilihan frame di <a href=\"/product\" class=\"text-[#960011] font-bold underline hover:text-[#c0111e] break-words\">halaman harga dan custom frame</a>, atau langsung mampir ke <a href=\"/location/madiun\" class=\"text-[#960011] font-bold underline hover:text-[#c0111e] break-words\">photobox Madiun di Sthana Coffee</a>. Info layanan lain ada di <a href=\"/service\" class=\"text-[#960011] font-bold underline hover:text-[#c0111e] break-words\">halaman layanan</a>.</p>\n",
+    "toc": [
+      {
+        "id": "kenapa-harus-menyiapkan-gaya-sebelum-masuk",
+        "text": "Kenapa Harus Menyiapkan Gaya Sebelum Masuk?"
+      },
+      {
+        "id": "5-ide-pose-yang-wajib-dicoba",
+        "text": "5 Ide Pose yang Wajib Dicoba"
+      },
+      {
+        "id": "tips-tambahan-biar-hasil-makin-maksimal",
+        "text": "Tips Tambahan biar Hasil Makin Maksimal"
+      },
+      {
+        "id": "abadikan-momen-seru-di-tentoten-photobox",
+        "text": "Abadikan Momen Seru di TentoTen Photobox"
+      }
+    ],
+    "wordCount": 688,
+    "internalLinks": [
+      "/location",
+      "/product",
+      "/location/madiun",
+      "/service"
     ]
   }
 ];
