@@ -3,7 +3,7 @@ title: "Apa Itu Photobox? 5 Hal yang Wajib Kamu Tahu"
 slug: "apa-itu-photobox"
 description: "Apa itu photobox dan gimana cara mainnya? Kenali 5 hal yang wajib kamu tahu sebelum coba, plus info sesi Rp35.000 di empat kota TentoTen."
 date: "2026-11-13"
-author: "Tim TentoTen Photobox"
+author: "Tim TentoTen Photobox_Yawda Putra"
 category: "Panduan"
 locations:
   - madiun
