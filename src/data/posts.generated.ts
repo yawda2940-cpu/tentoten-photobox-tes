@@ -34,6 +34,80 @@ export interface ArticlePost {
 
 export const PUBLISHED_POSTS: ArticlePost[] = [
   {
+    "title": "Apa Itu Photobox? 5 Hal yang Wajib Kamu Tahu",
+    "slug": "apa-itu-photobox",
+    "description": "Apa itu photobox dan gimana cara mainnya? Kenali 5 hal yang wajib kamu tahu sebelum coba, plus info sesi Rp35.000 di empat kota TentoTen.",
+    "date": "2026-11-13",
+    "author": "Tim TentoTen Photobox",
+    "category": "Panduan",
+    "locations": [
+      "madiun",
+      "jombang",
+      "ponorogo",
+      "kertosono"
+    ],
+    "image": "/assets/creators/kreator-6.webp",
+    "imageAlt": "Pengunjung berfoto di photobox TentoTen di salah satu kafe mitra",
+    "imageWidth": 520,
+    "imageHeight": 931,
+    "faq": [
+      {
+        "q": "Apa itu photobox dan apa bedanya dengan foto biasa?",
+        "a": "Photobox adalah tempat foto mandiri tanpa fotografer, jadi kamu yang mengatur pose dan ekspresi. Hasilnya tersusun dalam satu frame sehingga terasa seperti satu kenangan utuh."
+      },
+      {
+        "q": "Gimana cara foto di photobox buat pemula?",
+        "a": "Siapkan dua atau tiga pose sebelum masuk, rileksin bahu, dan nikmati prosesnya. Foto yang spontan biasanya lebih natural dan seru dikenang."
+      },
+      {
+        "q": "Berapa harga satu sesi photobox?",
+        "a": "Di TentoTen Photobox, satu sesi Rp35.000."
+      },
+      {
+        "q": "Photobox bisa pakai frame sendiri nggak?",
+        "a": "Bisa. TentoTen punya layanan custom frame Rp60.000 dengan file desain dari kamu sendiri."
+      }
+    ],
+    "draft": false,
+    "html": "<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Sering lihat orang antre di photobox, terus kepikiran: sebenarnya apa itu photobox dan gimana cara mainnya? Tenang, kamu nggak sendirian. Banyak orang penasaran tapi malu nanya. Di sini kita bahas dari nol, tanpa istilah ribet, sampai kamu siap masuk dan foto dengan percaya diri.</p>\n<h2 id=\"apa-itu-photobox-dijelasin-singkat\" class=\"font-headline-lg text-2xl sm:text-3xl text-[#1f1b11] font-black mt-8 mb-3 pt-2 scroll-mt-28 break-words\">Apa Itu Photobox, Dijelasin Singkat</h2>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Photobox adalah tempat foto mandiri yang bisa kamu pakai tanpa fotografer. Kamu masuk, atur posisi di depan kamera, lalu foto sendiri atau bareng teman dan pasangan. Hasilnya beberapa foto yang tersusun dalam satu frame, siap dipajang atau disimpan.</p>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Bayangkan studio foto mini yang lebih santai. Nggak ada yang ngatur gaya, nggak ada yang nyuruh senyum. Kamu pegang kendali penuh atas pose dan ekspresi, makanya photobox disukai orang yang pengin hasil foto natural tanpa ribet. Sekarang photobox juga sering ada di tempat nongkrong seperti kafe.</p>\n<h2 id=\"cara-main-photobox\" class=\"font-headline-lg text-2xl sm:text-3xl text-[#1f1b11] font-black mt-8 mb-3 pt-2 scroll-mt-28 break-words\">Cara Main Photobox</h2>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Alurnya gampang banget. Secara umum begini:</p>\n<ol class=\"list-decimal pl-5 sm:pl-6 mb-5 space-y-2 marker:text-[#960011] marker:font-bold\"><li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\"><strong>Datang ke lokasi.</strong> Kalau kamu di Madiun, Jombang, Ponorogo, atau Kertosono, TentoTen Photobox ada di kafe-kafe mitra di kota-kota itu.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\"><strong>Siapkan pose.</strong> Diskusikan dulu dengan temanmu. Cukup tentukan satu atau dua pose andalan.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\"><strong>Pilih frame dan mulai foto.</strong> Ikuti arahan di layar atau di lokasi. Begitu kamera jalan, tinggal pasang ekspresi.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\"><strong>Cek hasil dan bawa pulang.</strong> Alur detail tiap lokasi bisa sedikit berbeda, jadi ikuti petunjuk di tempat.</li></ol>\n<h2 id=\"5-hal-yang-wajib-kamu-tahu-soal-photobox\" class=\"font-headline-lg text-2xl sm:text-3xl text-[#1f1b11] font-black mt-8 mb-3 pt-2 scroll-mt-28 break-words\">5 Hal yang Wajib Kamu Tahu soal Photobox</h2>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Lima hal ini bikin photobox beda dari foto biasa. Kalau sudah paham, kamu lebih siap dan hasilnya lebih memuaskan.</p>\n<h3 id=\"1-kamu-foto-sendiri-tanpa-fotografer\" class=\"font-headline-sm text-lg sm:text-xl text-[#1f1b11] font-bold mt-6 mb-2 scroll-mt-28 break-words\">1. Kamu foto sendiri tanpa fotografer</h3>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Nggak ada yang mengarahkan, jadi kamu bebas bereksperimen. Seru, tapi perlu sedikit persiapan pose supaya nggak bingung di depan kamera.</p>\n<h3 id=\"2-pose-dan-ekspresi-bebas\" class=\"font-headline-sm text-lg sm:text-xl text-[#1f1b11] font-bold mt-6 mb-2 scroll-mt-28 break-words\">2. Pose dan ekspresi bebas</h3>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Senyum manis, muka lucu, atau gaya model, semuanya boleh. Banyak orang sengaja campur pose serius dan pose absurd dalam satu sesi biar hasilnya bervariasi.</p>\n<h3 id=\"3-frame-bikin-tampilan-foto-beda\" class=\"font-headline-sm text-lg sm:text-xl text-[#1f1b11] font-bold mt-6 mb-2 scroll-mt-28 break-words\">3. Frame bikin tampilan foto beda</h3>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Frame adalah bingkai yang membungkus fotomu. Pilihan frame bisa mengubah kesan foto, dari yang simpel sampai yang penuh warna. Di TentoTen, kamu juga bisa pakai custom frame dengan desain sendiri.</p>\n<h3 id=\"4-cocok-bareng-siapa-aja\" class=\"font-headline-sm text-lg sm:text-xl text-[#1f1b11] font-bold mt-6 mb-2 scroll-mt-28 break-words\">4. Cocok bareng siapa aja</h3>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Photobox bukan cuma buat pasangan. Kamu bisa datang sendirian, bareng sahabat, atau bareng keluarga. Makin banyak orang makin seru, asal semua wajah masuk frame.</p>\n<h3 id=\"5-hasilnya-jadi-kenangan-yang-bisa-disimpan\" class=\"font-headline-sm text-lg sm:text-xl text-[#1f1b11] font-bold mt-6 mb-2 scroll-mt-28 break-words\">5. Hasilnya jadi kenangan yang bisa disimpan</h3>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Hasil cetaknya bisa dipajang di dompet, ditempel di jurnal, atau disimpan sebagai kenang-kenangan. Karena tersusun rapi dalam satu rangkaian, rasanya lebih spesial dibanding foto biasa di galeri ponsel.</p>\n<h2 id=\"siapa-yang-cocok-main-photobox\" class=\"font-headline-lg text-2xl sm:text-3xl text-[#1f1b11] font-black mt-8 mb-3 pt-2 scroll-mt-28 break-words\">Siapa yang Cocok Main Photobox?</h2>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Hampir semua orang. Buat pasangan, photobox jadi tempat date yang simpel. Buat sahabat, ini kesempatan bikin foto absurd yang jarang ada di galeri. Buat yang datang sendirian, kamu bebas pose tanpa merasa diperhatikan. Selama siap bersenang-senang di depan kamera, kamu siap main.</p>\n<h2 id=\"beda-photobox-dengan-studio-foto-biasa\" class=\"font-headline-lg text-2xl sm:text-3xl text-[#1f1b11] font-black mt-8 mb-3 pt-2 scroll-mt-28 break-words\">Beda Photobox dengan Studio Foto Biasa</h2>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Di studio biasa, ada fotografer yang mengarahkan gaya dan mengatur pencahayaan. Di photobox, kamu jadi sutradara sekaligus model. Suasananya lebih santai dan spontan, dan hasilnya tersusun dalam satu frame sehingga terasa seperti satu kenangan utuh.</p>\n<h2 id=\"kesalahan-pemula-dan-tips-biar-estetik\" class=\"font-headline-lg text-2xl sm:text-3xl text-[#1f1b11] font-black mt-8 mb-3 pt-2 scroll-mt-28 break-words\">Kesalahan Pemula dan Tips Biar Estetik</h2>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Kesalahan yang paling sering terjadi:</p>\n<ul class=\"list-disc pl-5 sm:pl-6 mb-5 space-y-2 marker:text-[#960011] marker:font-bold\"><li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\">Masuk tanpa rencana pose, jadi sibuk bingung sementara kamera terus jalan. Siapkan dua atau tiga pose andalan, sisanya improvisasi.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\">Terlalu fokus tampil sempurna. Foto yang sedikit berantakan sering jadi favorit karena terlihat jujur dan seru.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\">Lupa cek posisi wajah. Pastikan semua kepala masuk frame.</li></ul>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Biar hasilnya makin estetik, hadapkan wajah ke kamera dan hindari menunduk terlalu dalam supaya tidak tertutup bayangan. Pilih outfit nyaman yang warnanya kontras dengan latar frame. Ngobrol dan bercanda dulu sebelum sesi, karena ekspresi spontan hampir selalu lebih bagus daripada senyum kaku. Kalau mau frame yang lebih personal, tambahkan tulisan di desain custom frame-mu.</p>\n<h2 id=\"mau-nyobain-cek-tentoten\" class=\"font-headline-lg text-2xl sm:text-3xl text-[#1f1b11] font-black mt-8 mb-3 pt-2 scroll-mt-28 break-words\">Mau Nyobain? Cek TentoTen</h2>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">TentoTen Photobox ada di empat kota, yaitu Madiun, Jombang, Ponorogo, dan Kertosono, semuanya di kafe, jadi kamu bisa foto dulu lalu santai ngopi bareng. Satu sesi Rp35.000. Kalau mau frame buatan sendiri, ada layanan custom frame Rp60.000 dengan file desain dari kamu.</p>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Lihat pilihan frame dan harga di <a href=\"/product\" class=\"text-[#960011] font-bold underline hover:text-[#c0111e] break-words\">halaman harga dan custom frame</a>, cek alamat lengkap tiap cabang di <a href=\"/location\" class=\"text-[#960011] font-bold underline hover:text-[#c0111e] break-words\">halaman lokasi kafe</a>, atau tanya tim TentoTen lewat <a href=\"/service\" class=\"text-[#960011] font-bold underline hover:text-[#c0111e] break-words\">halaman layanan</a>.</p>\n",
+    "toc": [
+      {
+        "id": "apa-itu-photobox-dijelasin-singkat",
+        "text": "Apa Itu Photobox, Dijelasin Singkat"
+      },
+      {
+        "id": "cara-main-photobox",
+        "text": "Cara Main Photobox"
+      },
+      {
+        "id": "5-hal-yang-wajib-kamu-tahu-soal-photobox",
+        "text": "5 Hal yang Wajib Kamu Tahu soal Photobox"
+      },
+      {
+        "id": "siapa-yang-cocok-main-photobox",
+        "text": "Siapa yang Cocok Main Photobox?"
+      },
+      {
+        "id": "beda-photobox-dengan-studio-foto-biasa",
+        "text": "Beda Photobox dengan Studio Foto Biasa"
+      },
+      {
+        "id": "kesalahan-pemula-dan-tips-biar-estetik",
+        "text": "Kesalahan Pemula dan Tips Biar Estetik"
+      },
+      {
+        "id": "mau-nyobain-cek-tentoten",
+        "text": "Mau Nyobain? Cek TentoTen"
+      }
+    ],
+    "wordCount": 665,
+    "internalLinks": [
+      "/product",
+      "/location",
+      "/service"
+    ]
+  },
+  {
     "title": "3 Desain Bingkai Photobox Terlengkap di Madiun",
     "slug": "desain-bingkai-photobox-madiun",
     "description": "Bingung pilih frame? Kenali 3 desain bingkai photobox di Madiun: Klasik, Retro, dan Minimalis, lengkap tips outfit dan harga sesi Rp35.000.",
