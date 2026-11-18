@@ -236,6 +236,86 @@ export const PUBLISHED_POSTS: ArticlePost[] = [
     ]
   },
   {
+    "title": "Harga Photobox Mulai Rp35.000: Pilih Paket di Madiun",
+    "slug": "harga-photobox-madiun",
+    "description": "Harga photobox di TentoTen Madiun mulai Rp35.000 untuk sesi reguler dan Rp60.000 untuk custom frame. Bandingkan pilihannya sebelum datang.",
+    "date": "2026-10-18",
+    "author": "Tim TentoTen Photobox",
+    "category": "Panduan",
+    "locations": [
+      "madiun"
+    ],
+    "image": "/assets/creators/kreator-5.webp",
+    "imageAlt": "Photobox TentoTen di Sthana Coffee Madiun dengan pilihan paket dan harga",
+    "imageWidth": 520,
+    "imageHeight": 931,
+    "faq": [
+      {
+        "q": "Berapa harga photobox di TentoTen Madiun?",
+        "a": "Satu sesi photobox Rp35.000. Kalau mau pakai desain frame sendiri, ada layanan custom frame Rp60.000."
+      },
+      {
+        "q": "Apa bedanya sesi reguler dan custom frame?",
+        "a": "Sesi reguler memakai frame standar dari TentoTen, sedangkan custom frame memakai desain buatanmu sendiri."
+      },
+      {
+        "q": "Bagaimana cara memasang custom frame?",
+        "a": "Hubungi admin lewat WhatsApp sebelum datang. Admin akan memasangkan desain frame buatanmu ke mesin."
+      },
+      {
+        "q": "Berapa lama satu sesi foto?",
+        "a": "Satu sesi berlangsung sekitar 15 menit, dan hasil foto dicetak langsung setelah sesi selesai."
+      }
+    ],
+    "draft": false,
+    "html": "<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Harga photobox di TentoTen Photobox Madiun mulai dari Rp35.000 untuk sesi reguler dan Rp60.000 untuk custom frame dengan desain dari kamu sendiri. Di sini kita bandingkan keduanya supaya kamu bisa pilih yang paling pas, lengkap dengan cara pesannya.</p>\n<h2 id=\"kenapa-harga-yang-tidak-jelas-bikin-ragu\" class=\"font-headline-lg text-2xl sm:text-3xl text-[#1f1b11] font-black mt-8 mb-3 pt-2 scroll-mt-28 break-words\">Kenapa Harga yang Tidak Jelas Bikin Ragu</h2>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Saat mencari harga photobox, banyak orang cuma menemukan tulisan &quot;hubungi admin&quot; tanpa angka. Akibatnya harus tanya satu per satu, dan sering batal karena malas menunggu balasan.</p>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Masalah lain muncul setelah sampai lokasi. Kamu ingin pakai desain frame sendiri, tapi baru tahu itu butuh layanan tersendiri. Makanya, kenali pilihan dan harganya sebelum datang.</p>\n<h2 id=\"harga-photobox-tentoten-reguler-vs-custom-frame\" class=\"font-headline-lg text-2xl sm:text-3xl text-[#1f1b11] font-black mt-8 mb-3 pt-2 scroll-mt-28 break-words\">Harga Photobox TentoTen: Reguler vs Custom Frame</h2>\n<div class=\"w-full max-w-full overflow-x-auto my-6 rounded-xl border-2 border-[#1f1b11] bg-[#fff8f0]\"><table class=\"w-full text-left border-collapse min-w-[420px]\"><thead><tr><th class=\"px-3 py-2.5 bg-[#fcf3e2] border-b-2 border-[#1f1b11] font-headline-sm text-xs sm:text-sm font-bold text-[#1f1b11] whitespace-nowrap\">Pilihan</th><th class=\"px-3 py-2.5 bg-[#fcf3e2] border-b-2 border-[#1f1b11] font-headline-sm text-xs sm:text-sm font-bold text-[#1f1b11] whitespace-nowrap\">Harga</th><th class=\"px-3 py-2.5 bg-[#fcf3e2] border-b-2 border-[#1f1b11] font-headline-sm text-xs sm:text-sm font-bold text-[#1f1b11] whitespace-nowrap\">Frame</th><th class=\"px-3 py-2.5 bg-[#fcf3e2] border-b-2 border-[#1f1b11] font-headline-sm text-xs sm:text-sm font-bold text-[#1f1b11] whitespace-nowrap\">Cocok untuk</th></tr></thead><tbody><tr class=\"even:bg-[#fcf3e2]/40\"><td class=\"px-3 py-2.5 border-t border-[#1f1b11]/15 text-xs sm:text-sm text-[#5c403d] align-top break-words\">Sesi reguler</td><td class=\"px-3 py-2.5 border-t border-[#1f1b11]/15 text-xs sm:text-sm text-[#5c403d] align-top break-words\">Rp35.000</td><td class=\"px-3 py-2.5 border-t border-[#1f1b11]/15 text-xs sm:text-sm text-[#5c403d] align-top break-words\">Frame standar dari TentoTen</td><td class=\"px-3 py-2.5 border-t border-[#1f1b11]/15 text-xs sm:text-sm text-[#5c403d] align-top break-words\">Foto santai bareng teman atau pasangan</td></tr>\n<tr class=\"even:bg-[#fcf3e2]/40\"><td class=\"px-3 py-2.5 border-t border-[#1f1b11]/15 text-xs sm:text-sm text-[#5c403d] align-top break-words\">Custom frame</td><td class=\"px-3 py-2.5 border-t border-[#1f1b11]/15 text-xs sm:text-sm text-[#5c403d] align-top break-words\">Rp60.000</td><td class=\"px-3 py-2.5 border-t border-[#1f1b11]/15 text-xs sm:text-sm text-[#5c403d] align-top break-words\">Desain frame dari kamu</td><td class=\"px-3 py-2.5 border-t border-[#1f1b11]/15 text-xs sm:text-sm text-[#5c403d] align-top break-words\">Ulang tahun, acara bertema, atau kenang-kenangan komunitas</td></tr></tbody></table></div>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Foto dicetak langsung, jadi hasilnya bisa dibawa pulang setelah sesi selesai. Dengan harga yang terbuka, kamu bisa menghitung anggaran sejak awal, baik berdua maupun rombongan.</p>\n<h2 id=\"sesi-reguler-atau-custom-frame\" class=\"font-headline-lg text-2xl sm:text-3xl text-[#1f1b11] font-black mt-8 mb-3 pt-2 scroll-mt-28 break-words\">Sesi Reguler atau Custom Frame?</h2>\n<h3 id=\"pilih-sesi-reguler-kalau-ingin-praktis\" class=\"font-headline-sm text-lg sm:text-xl text-[#1f1b11] font-bold mt-6 mb-2 scroll-mt-28 break-words\">Pilih sesi reguler kalau ingin praktis</h3>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Cocok untuk foto cepat tanpa persiapan. Datang, masuk ke bilik, lalu pilih jepretan. Dengan Rp35.000, sesi ini pas untuk date, nongkrong bareng sahabat, atau sekadar mengisi waktu. Mesin menampilkan pilihan 3, 4, 6, atau 8 jepret, jadi jumlah pose bisa disesuaikan dengan jumlah orang.</p>\n<h3 id=\"pilih-custom-frame-kalau-ingin-hasil-yang-personal\" class=\"font-headline-sm text-lg sm:text-xl text-[#1f1b11] font-bold mt-6 mb-2 scroll-mt-28 break-words\">Pilih custom frame kalau ingin hasil yang personal</h3>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Cocok untuk ulang tahun, reuni, atau acara komunitas. Desain frame buatanmu membuat tiap lembar foto membawa identitas acara. Karena frame dipasang oleh admin, kabari lewat WhatsApp lebih dulu supaya desainmu sudah terpasang saat kamu tiba.</p>\n<h2 id=\"cara-memilih-dalam-4-langkah\" class=\"font-headline-lg text-2xl sm:text-3xl text-[#1f1b11] font-black mt-8 mb-3 pt-2 scroll-mt-28 break-words\">Cara Memilih dalam 4 Langkah</h2>\n<ol class=\"list-decimal pl-5 sm:pl-6 mb-5 space-y-2 marker:text-[#960011] marker:font-bold\"><li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\">Tentukan tujuan: kunjungan santai atau momen khusus yang butuh frame bertema.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\">Pilih sesi reguler Rp35.000 kalau frame standar sudah cukup, atau custom frame Rp60.000 kalau kamu punya desain sendiri.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\">Untuk custom frame, hubungi admin lewat WhatsApp agar desainmu dipasang ke mesin.</li>\n<li class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed break-words\">Datang ke lokasi, masuk ke bilik, pilih jepretan, lalu ambil hasil cetaknya. Satu sesi berlangsung sekitar 15 menit.</li></ol>\n<h2 id=\"yang-perlu-disiapkan-sebelum-berfoto\" class=\"font-headline-lg text-2xl sm:text-3xl text-[#1f1b11] font-black mt-8 mb-3 pt-2 scroll-mt-28 break-words\">Yang Perlu Disiapkan Sebelum Berfoto</h2>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Kalau memilih custom frame, siapkan desain dengan kualitas gambar yang tajam. Pakai teks singkat dan warna kontras supaya tulisan tetap terbaca di hasil cetak. Tanyakan ukuran frame yang tepat ke admin sebelum mengirim desain.</p>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Untuk semua pilihan, rencanakan pose sebelum masuk. Karena sesi sekitar 15 menit, pose yang sudah disiapkan bikin hasil lebih rapi dan kamu tidak terburu-buru.</p>\n<h2 id=\"tips-hemat-patungan\" class=\"font-headline-lg text-2xl sm:text-3xl text-[#1f1b11] font-black mt-8 mb-3 pt-2 scroll-mt-28 break-words\">Tips Hemat: Patungan</h2>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Cara paling gampang menghemat adalah patungan. Sesi reguler Rp35.000 dibagi empat orang cuma sekitar Rp8.750 per orang. Custom frame Rp60.000 dibagi lima orang jadi Rp12.000 per orang. Kalau ragu, tanyakan dulu ke admin sebelum membayar.</p>\n<h2 id=\"tentang-tentoten-photobox-di-madiun\" class=\"font-headline-lg text-2xl sm:text-3xl text-[#1f1b11] font-black mt-8 mb-3 pt-2 scroll-mt-28 break-words\">Tentang TentoTen Photobox di Madiun</h2>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">TentoTen Photobox, atau 10to10 Photobox, adalah layanan self-photo yang didirikan oleh Kevin dan Zakwan. Fokusnya hanya satu, yaitu photobox, jadi tiap harga dijelaskan sejelas mungkin. Tren photobox di Madiun juga pernah diulas dalam <a href=\"https://rri.co.id/madiun/ekonomi/umkm/2568403/berawal-dari-coding-tren-photobox-dan-photobooth-jadi-bisnis-menjanjikan\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-[#960011] font-bold underline hover:text-[#c0111e] break-words\">liputan RRI Madiun</a>.</p>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Intip hasil foto pelanggan di <a href=\"https://www.instagram.com/10to10.photobox/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-[#960011] font-bold underline hover:text-[#c0111e] break-words\">Instagram @10to10.photobox</a> dan <a href=\"https://www.tiktok.com/@10to10.photobox\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-[#960011] font-bold underline hover:text-[#c0111e] break-words\">TikTok @10to10.photobox</a>. Salah satu pelanggan juga menulis di <a href=\"https://maps.app.goo.gl/VDZH34En1SVmJoC68\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-[#960011] font-bold underline hover:text-[#c0111e] break-words\">Google Maps</a> bahwa pilihan framenya banyak, instruksi di layar jelas, dan harganya sekitar Rp30 ribuan sudah dapat 2 strip.</p>\n<h2 id=\"lokasi-jam-buka-dan-cara-pesan\" class=\"font-headline-lg text-2xl sm:text-3xl text-[#1f1b11] font-black mt-8 mb-3 pt-2 scroll-mt-28 break-words\">Lokasi, Jam Buka, dan Cara Pesan</h2>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">TentoTen Madiun ada di dalam Sthana Coffee, Jl. Setiaki No. 27, Oro-oro Ombo, Kecamatan Kartoharjo, Kota Madiun, Jawa Timur 63119. Buka setiap hari pukul 07.00 sampai 23.00. Lihat detail cabang di <a href=\"/location/madiun\" class=\"text-[#960011] font-bold underline hover:text-[#c0111e] break-words\">halaman lokasi photobox Madiun</a>.</p>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Untuk tanya harga, ketersediaan, atau pemasangan custom frame, hubungi admin di <a href=\"https://wa.me/6287881485375\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-[#960011] font-bold underline hover:text-[#c0111e] break-words\">WhatsApp 0878-8148-5375</a>. Paket lengkapnya ada di <a href=\"/product\" class=\"text-[#960011] font-bold underline hover:text-[#c0111e] break-words\">halaman harga dan custom frame</a> dan <a href=\"/service\" class=\"text-[#960011] font-bold underline hover:text-[#c0111e] break-words\">halaman layanan</a>, atau lewat <a href=\"/contact\" class=\"text-[#960011] font-bold underline hover:text-[#c0111e] break-words\">halaman kontak</a>.</p>\n<h2 id=\"kesimpulan\" class=\"font-headline-lg text-2xl sm:text-3xl text-[#1f1b11] font-black mt-8 mb-3 pt-2 scroll-mt-28 break-words\">Kesimpulan</h2>\n<p class=\"font-body-md text-sm sm:text-base text-[#5c403d] leading-relaxed mb-4 break-words\">Harga photobox di TentoTen jelas dan sederhana: Rp35.000 untuk sesi reguler dan Rp60.000 untuk custom frame. Pilih sesuai kebutuhan, ajak teman patungan, lalu abadikan momenmu di Madiun.</p>\n",
+    "toc": [
+      {
+        "id": "kenapa-harga-yang-tidak-jelas-bikin-ragu",
+        "text": "Kenapa Harga yang Tidak Jelas Bikin Ragu"
+      },
+      {
+        "id": "harga-photobox-tentoten-reguler-vs-custom-frame",
+        "text": "Harga Photobox TentoTen: Reguler vs Custom Frame"
+      },
+      {
+        "id": "sesi-reguler-atau-custom-frame",
+        "text": "Sesi Reguler atau Custom Frame?"
+      },
+      {
+        "id": "cara-memilih-dalam-4-langkah",
+        "text": "Cara Memilih dalam 4 Langkah"
+      },
+      {
+        "id": "yang-perlu-disiapkan-sebelum-berfoto",
+        "text": "Yang Perlu Disiapkan Sebelum Berfoto"
+      },
+      {
+        "id": "tips-hemat-patungan",
+        "text": "Tips Hemat: Patungan"
+      },
+      {
+        "id": "tentang-tentoten-photobox-di-madiun",
+        "text": "Tentang TentoTen Photobox di Madiun"
+      },
+      {
+        "id": "lokasi-jam-buka-dan-cara-pesan",
+        "text": "Lokasi, Jam Buka, dan Cara Pesan"
+      },
+      {
+        "id": "kesimpulan",
+        "text": "Kesimpulan"
+      }
+    ],
+    "wordCount": 604,
+    "internalLinks": [
+      "/location/madiun",
+      "/product",
+      "/service",
+      "/contact"
+    ]
+  },
+  {
     "title": "Apa Itu Self-Service Photobox? Foto Tanpa Operator",
     "slug": "apa-itu-self-service-photobox",
     "description": "Apa itu self-service photobox dan bagaimana cara kerjanya? Kenali tahapan foto mandiri, bedanya dengan photobooth operator, dan contohnya di Madiun.",
@@ -316,7 +396,7 @@ export const PUBLISHED_POSTS: ArticlePost[] = [
       "ponorogo",
       "kertosono"
     ],
-    "image": "/assets/creators/kreator-5.webp",
+    "image": "/assets/creators/kreator-3.webp",
     "imageAlt": "Beberapa contoh desain photobooth frame hasil cetak TentoTen Photobox",
     "imageWidth": 520,
     "imageHeight": 931,
@@ -374,7 +454,7 @@ export const PUBLISHED_POSTS: ArticlePost[] = [
       "ponorogo",
       "kertosono"
     ],
-    "image": "/assets/creators/kreator-5.webp",
+    "image": "/assets/creators/kreator-2.webp",
     "imageAlt": "Dua teman berpose seru di dalam photobox TentoTen",
     "imageWidth": 520,
     "imageHeight": 931,
